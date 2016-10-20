@@ -21,18 +21,26 @@ public class DataOutputForOriginal {
             File file1 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\411.csv");
             if ( !file1.exists())
                 file1 = new File("E:\\先行研究\\test.txt");
+            if ( !file1.exists())
+                file1 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test1.csv");
 
             File file2 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\412.csv");
             if ( !file2.exists())
                 file2 = new File("E:\\先行研究\\test.txt");
+            if ( !file2.exists())
+                file2 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test2.csv");
 
             File file3 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\511.csv");
             if ( !file3.exists())
-                file3 = new File("E:\\先行研究\\test.txt");
+                file3 = new File("E:\\先行研究\\test3.txt");
+            if ( !file3.exists())
+                file3 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test1.csv");
 
             File file4 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\512.csv");
             if ( !file4.exists())
                 file4 = new File("E:\\先行研究\\test.txt");
+            if ( !file4.exists())
+                file4 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test4.csv");
 
             if (checkBeforeWritefile(file1) && checkBeforeWritefile(file2) && checkBeforeWritefile(file3) && checkBeforeWritefile(file4)) {
                 FileWriter filewriter1 = new FileWriter(file1);
