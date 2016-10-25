@@ -1,9 +1,15 @@
 import org.apache.commons.math3.random.MersenneTwister;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  * Created by Sumi on 2016/10/13.
  */
 public class Test {
+    public static File file;
+    public static FileWriter filewriter;
     public static AgentRandomNetwork network;
     public static void main(String[] args) {
 
@@ -15,6 +21,7 @@ public class Test {
             //OriginalNetworkLayer.displayNetwork();
         }
         OriginalNetworkLayer.displayNetwork();
+        graphicRandomNetwork(0);
     }
 
     public static void GenerateGraph() {
@@ -37,5 +44,32 @@ public class Test {
         }
         average=total/100;
         return average;
+    }
+
+    public static void graphicRandomNetwork(int layernumber){
+        try {
+            file = new File("C:\\Users\\s.nakamura\\Google ドライブ\\graphicRandomNetwork.csv");
+            if (checkBeforeWritefile(file)){
+                filewriter = new FileWriter(file);
+                filewriter.write(0+","+1+"\n");
+                for(int i=0;i<Paramerter.agentnumber;i++){
+                    for(int j=0;j<OriginalNetworkLayer.network[layernumber].friendagent[i].size();j++){
+                        filewriter.write(i+","+OriginalNetworkLayer.network[layernumber].friendagent[i].get(j).number+"\n");
+                    }
+                }
+                filewriter.close();
+            }
+        } catch(IOException e){
+            System.out.println(e);
+        }
+    }
+
+    private static boolean checkBeforeWritefile(File file) {
+        if (file.exists()) {
+            if (file.isFile() && file.canWrite()) {
+                return true;
+            }
+        }
+        return false;
     }
 }
