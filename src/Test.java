@@ -13,6 +13,7 @@ public class Test {
     public static AgentRandomNetwork network;
     public static void main(String[] args) {
 
+    /*
         OriginalNetworkLayer.init();
         OriginalNetworkLayer.displayNetwork();
         for(int i=0;i<Paramerter.convergencenumber;i++){
@@ -22,6 +23,8 @@ public class Test {
         }
         OriginalNetworkLayer.displayNetwork();
         graphicRandomNetwork(0);
+     */
+        originalReserchfottest();
     }
 
     public static void GenerateGraph() {
@@ -71,5 +74,40 @@ public class Test {
             }
         }
         return false;
+    }
+
+    public static void originalReserchfottest(){
+        OriginalNetworkLayer.init();
+        for(int i=0;i<Paramerter.convergencenumber;i++){
+            OriginalNetworkLayer.formationOfOpinion();
+            OriginalNetworkLayer.pressureAndSilence();
+            if(i == 0)
+                opinionAspect(0,0);
+            if(i == 100)
+                opinionAspect(0,100);
+            if(i == 1000)
+                opinionAspect(0,1000);
+            if(i==10000)
+                opinionAspect(0,10000);
+        }
+    }
+
+    public static void opinionAspect(int layernumber,int loopnumber) {
+        for (int i = 0; i < Paramerter.agentnumber; i++) {
+            System.out.println(loopnumber + "," + layernumber + "," + i + "," + OriginalNetworkLayer.network[layernumber].agent[i].opinion);
+        }
+        try {
+            file = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\another.csv");
+            if (checkBeforeWritefile(file)){
+                filewriter = new FileWriter(file,true);
+                filewriter.write(0+","+1+"\n");
+                for(int i=0;i<Paramerter.agentnumber;i++){
+                    filewriter.write(loopnumber + "," + layernumber + "," + i + "," + OriginalNetworkLayer.network[layernumber].agent[i].opinion+"\n");
+                }
+                filewriter.close();
+            }
+        } catch(IOException e){
+            System.out.println(e);
+        }
     }
 }
