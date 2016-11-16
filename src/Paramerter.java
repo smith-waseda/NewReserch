@@ -14,7 +14,7 @@ public class Paramerter {
     /**
      * すり合わせ許容度
      */
-    public static final double confornitybias = 0.4;
+    public static final double confornitybias = 0.2;
     /**
      * ネットワーク間の接続性
      */
