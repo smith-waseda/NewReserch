@@ -77,10 +77,10 @@ public class Test {
     }
 
     public static void originalReserchfottest(){
-        OriginalNetworkLayer.init();
+        OriginalNetworkLayerWithProposedMethod2.init();
         for(int i=0;i<Paramerter.convergencenumber;i++){
-            OriginalNetworkLayer.formationOfOpinion();
-            OriginalNetworkLayer.pressureAndSilence();
+            OriginalNetworkLayerWithProposedMethod2.formationOfOpinion();
+            OriginalNetworkLayerWithProposedMethod2.pressureAndSilence();
             if(i==40000)
                 opinionAspect(0,40000);
             if(i==40000)
@@ -96,15 +96,15 @@ public class Test {
 
     public static void opinionAspect(int layernumber,int loopnumber) {
         for (int i = 0; i < Paramerter.agentnumber; i++) {
-            System.out.println(loopnumber + "," + layernumber + "," + i + "," + OriginalNetworkLayer.network[layernumber].agent[i].opinion);
+            System.out.println(loopnumber + "," + layernumber + "," + i + "," + OriginalNetworkLayerWithProposedMethod2.network[layernumber].agent[i].opinion);
         }
         try {
-            file = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\opinionaspect3.csv");
+            file = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\opinionaspect4.csv");
             if (checkBeforeWritefile(file)){
                 filewriter = new FileWriter(file,true);
                 filewriter.write(0+","+1+"\n");
                 for(int i=0;i<Paramerter.agentnumber;i++){
-                    filewriter.write(loopnumber + "," + layernumber + "," + i + "," + OriginalNetworkLayer.network[layernumber].agent[i].opinion+"\n");
+                    filewriter.write(loopnumber + "," + layernumber + "," + i + "," + OriginalNetworkLayerWithProposedMethod2.network[layernumber].agent[i].opinion+"\n");
                 }
                 filewriter.close();
             }
