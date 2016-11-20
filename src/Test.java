@@ -81,30 +81,30 @@ public class Test {
         for(int i=0;i<Paramerter.convergencenumber;i++){
             OriginalNetworkLayerWithProposedMethod2.formationOfOpinion();
             OriginalNetworkLayerWithProposedMethod2.pressureAndSilence();
-            if(i==40000)
-                opinionAspect(0,40000);
-            if(i==40000)
-                opinionAspect(1,40000);
-            if(i==40000)
-                opinionAspect(2,40000);
-            if(i==40000)
-                opinionAspect(3,40000);
-            if(i==40000)
-                opinionAspect(4,40000);
+            if(i==30000)
+                opinionAspect(30000);
         }
     }
 
-    public static void opinionAspect(int layernumber,int loopnumber) {
+    public static void opinionAspect(int loopnumber) {
         for (int i = 0; i < Paramerter.agentnumber; i++) {
-            System.out.println(loopnumber + "," + layernumber + "," + i + "," + OriginalNetworkLayerWithProposedMethod2.network[layernumber].agent[i].opinion);
+            System.out.println(loopnumber + "," +"0" + "," + i + "," + OriginalNetworkLayerWithProposedMethod2.network[0].agent[i].opinion);
         }
         try {
-            file = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\opinionaspect4.csv");
+            file = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\opinionaspect7.csv");
             if (checkBeforeWritefile(file)){
                 filewriter = new FileWriter(file,true);
                 filewriter.write(0+","+1+"\n");
                 for(int i=0;i<Paramerter.agentnumber;i++){
-                    filewriter.write(loopnumber + "," + layernumber + "," + i + "," + OriginalNetworkLayerWithProposedMethod2.network[layernumber].agent[i].opinion+"\n");
+                    filewriter.write("接続次数"+Paramerter.probability+"許容度"+Paramerter.confornitybias+"ネットワークの接続性"+Paramerter.connectivity+"\n");
+                    filewriter.write(loopnumber + "," + "0" + ","+i+"," + OriginalNetworkLayerWithProposedMethod2.network[0].agent[i].opinion
+                            +"1" + ","+i+"," + OriginalNetworkLayerWithProposedMethod2.network[1].agent[i].opinion
+                            +"2" + ","+i+"," + OriginalNetworkLayerWithProposedMethod2.network[2].agent[i].opinion
+                            +"3" + ","+i+"," + OriginalNetworkLayerWithProposedMethod2.network[3].agent[i].opinion
+                            +"4" + ","+i+"," + OriginalNetworkLayerWithProposedMethod2.network[4].agent[i].opinion
+                            +"5" + ","+i+"," + OriginalNetworkLayerWithProposedMethod2.network[5].agent[i].opinion
+                            +"6" + ","+i+"," + OriginalNetworkLayerWithProposedMethod2.network[6].agent[i].opinion
+                            +"7" + ","+i+"," + OriginalNetworkLayerWithProposedMethod2.network[7].agent[i].opinion+"\n");
                 }
                 filewriter.close();
             }

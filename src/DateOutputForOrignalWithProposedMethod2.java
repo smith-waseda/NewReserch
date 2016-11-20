@@ -10,7 +10,7 @@ public class DateOutputForOrignalWithProposedMethod2 {
     public static FileWriter filewriter1,filewriter2,filewriter3,filewriter4,filewriter5;
     public static int looptime = Paramerter.numberoftrial;
     public static void main(String[] args) {
-        outPut(0.5);
+        outPut(0.3);
     }
 
     public static void outPut(double allowance){

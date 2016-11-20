@@ -8,7 +8,7 @@ public class Paramerter {
      * 実験でのループ回数
      */
     public static final int numberoftrial = 100;
-    public static final int convergencenumber = 50000;
+    public static final int convergencenumber = 40000;
     public static final int agentnumber = 100;
     public static final int layernumber = 8;
     /**
@@ -18,7 +18,7 @@ public class Paramerter {
     /**
      * ネットワーク間の接続性
      */
-    public static double connectivity = 0.5;
+    public static double connectivity = 0.2;
     /**
      * 一貫性のなさへの許容度
      */
