@@ -81,14 +81,16 @@ public class Test {
         for(int i=0;i<Paramerter.convergencenumber;i++){
             OriginalNetworkLayer.formationOfOpinion();
             OriginalNetworkLayer.pressureAndSilence();
-            if(i == 0)
-                opinionAspect(0,0);
-            if(i == 100)
-                opinionAspect(0,100);
-            if(i == 1000)
-                opinionAspect(0,1000);
-            if(i==10000)
-                opinionAspect(0,10000);
+            if(i==40000)
+                opinionAspect(0,40000);
+            if(i==40000)
+                opinionAspect(1,40000);
+            if(i==40000)
+                opinionAspect(2,40000);
+            if(i==40000)
+                opinionAspect(3,40000);
+            if(i==40000)
+                opinionAspect(4,40000);
         }
     }
 
@@ -97,7 +99,7 @@ public class Test {
             System.out.println(loopnumber + "," + layernumber + "," + i + "," + OriginalNetworkLayer.network[layernumber].agent[i].opinion);
         }
         try {
-            file = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\another.csv");
+            file = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\opinionaspect3.csv");
             if (checkBeforeWritefile(file)){
                 filewriter = new FileWriter(file,true);
                 filewriter.write(0+","+1+"\n");

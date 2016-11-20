@@ -17,4 +17,13 @@ public class ReserchExperiment {
             OriginalNetworkLayer.pressureAndSilence();
         }
     }
+
+    public static void originalReserchWithProposedMethod2(){
+        OriginalNetworkLayerWithProposedMethod2.init();
+        for(int i=0;i<Paramerter.convergencenumber;i++){
+            OriginalNetworkLayerWithProposedMethod2.formationOfOpinion();
+            OriginalNetworkLayerWithProposedMethod2.pressureAndSilence();
+        }
+    }
+
 }

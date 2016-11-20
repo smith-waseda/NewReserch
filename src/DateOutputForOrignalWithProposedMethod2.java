@@ -3,9 +3,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * Created by Sumi on 2016/10/16.
+ * Created by Sumi on 2016/11/16.
  */
-public class DataOutputForOriginal {
+public class DateOutputForOrignalWithProposedMethod2 {
     public static File file1,file2,file3,file4,file5;
     public static FileWriter filewriter1,filewriter2,filewriter3,filewriter4,filewriter5;
     public static int looptime = Paramerter.numberoftrial;
@@ -20,31 +20,31 @@ public class DataOutputForOriginal {
         double total512,average512;
         System.out.println("test:"+allowance);
         try {
-            file1 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\411.csv");
+            file1 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\411.csv");
             if ( !file1.exists())
                 file1 = new File("E:\\先行研究\\test.txt");
             if ( !file1.exists())
                 file1 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test1.csv");
 
-            file2 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\412.csv");
+            file2 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\412.csv");
             if ( !file2.exists())
                 file2 = new File("E:\\先行研究\\test.txt");
             if ( !file2.exists())
                 file2 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test2.csv");
 
-            file3 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\511.csv");
+            file3 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\511.csv");
             if ( !file3.exists())
                 file3 = new File("E:\\先行研究\\test3.txt");
             if ( !file3.exists())
                 file3 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test3.csv");
 
-            file4 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\512.csv");
+            file4 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\512.csv");
             if ( !file4.exists())
                 file4 = new File("E:\\先行研究\\test.txt");
             if ( !file4.exists())
                 file4 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test4.csv");
 
-            file5 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\another.csv");
+            file5 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\opinionaspect2.csv");
             if ( !file5.exists())
                 file5 = new File("E:\\先行研究\\test.txt");
             if ( !file5.exists())
@@ -180,4 +180,3 @@ public class DataOutputForOriginal {
         return persentage;
     }
 }
-
