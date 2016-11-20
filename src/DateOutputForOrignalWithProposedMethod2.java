@@ -22,31 +22,31 @@ public class DateOutputForOrignalWithProposedMethod2 {
         try {
             file1 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\411.csv");
             if ( !file1.exists())
-                file1 = new File("E:\\先行研究\\test.txt");
+                file1 = new File("E:\\卒論出力\\提案手法2\\411.csv");
             if ( !file1.exists())
                 file1 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test1.csv");
 
             file2 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\412.csv");
             if ( !file2.exists())
-                file2 = new File("E:\\先行研究\\test.txt");
+                file2 = new File("E:\\卒論出力\\提案手法2\\412.csv");
             if ( !file2.exists())
                 file2 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test2.csv");
 
             file3 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\511.csv");
             if ( !file3.exists())
-                file3 = new File("E:\\先行研究\\test3.txt");
+                file3 = new File("E:\\卒論出力\\提案手法2\\511.csv");
             if ( !file3.exists())
                 file3 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test3.csv");
 
             file4 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\512.csv");
             if ( !file4.exists())
-                file4 = new File("E:\\先行研究\\test.txt");
+                file4 = new File("E:\\卒論出力\\提案手法2\\512.csv");
             if ( !file4.exists())
                 file4 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test4.csv");
 
             file5 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\opinionaspect2.csv");
             if ( !file5.exists())
-                file5 = new File("E:\\先行研究\\test.txt");
+                file5 = new File("E:\\卒論出力\\提案手法2\\opinionaspect2.csv");
             if ( !file5.exists())
                 file5 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test5.csv");
 
