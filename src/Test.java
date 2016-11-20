@@ -99,7 +99,7 @@ public class Test {
             System.out.println(loopnumber + "," + layernumber + "," + i + "," + OriginalNetworkLayerWithProposedMethod2.network[layernumber].agent[i].opinion);
         }
         try {
-            file = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\opinionaspect4.csv");
+            file = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\opinionaspect4.csv");
             if (checkBeforeWritefile(file)){
                 filewriter = new FileWriter(file,true);
                 filewriter.write(0+","+1+"\n");
@@ -109,7 +109,7 @@ public class Test {
                 filewriter.close();
             }
         } catch(IOException e){
-            System.out.println(e);
+            System.out.println(e+"testaaa");
         }
     }
 }
