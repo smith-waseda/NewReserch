@@ -10,7 +10,7 @@ public class DateOutputForOrignalWithProposedMethod2 {
     public static FileWriter filewriter1,filewriter2,filewriter3,filewriter4,filewriter5;
     public static int looptime = Paramerter.numberoftrial;
     public static void main(String[] args) {
-        outPut(0.3);
+        outPut(0.5);
     }
 
     public static void outPut(double allowance){
@@ -65,7 +65,7 @@ public class DateOutputForOrignalWithProposedMethod2 {
                     total511=0;
                     total512=0;
                     for (int j = 0; j < looptime; j++) {
-                        ReserchExperiment.originalReserch();
+                        ReserchExperiment.originalReserchWithProposedMethod2();
                         total411 += evaluateDispersion();
                         total412 += differenceBetweenNetworkLayer();
                         total511 += percentageOfExpress();
@@ -112,7 +112,7 @@ public class DateOutputForOrignalWithProposedMethod2 {
         double total = 0,average;
         for (int i = 0; i < Paramerter.layernumber; i++) {
             for (int j = 0; j < Paramerter.agentnumber; j++) {
-                total += OriginalNetworkLayer.network[i].agent[j].opinion;
+                total += OriginalNetworkLayerWithProposedMethod2.network[i].agent[j].opinion;
             }
         }
         average = total / (Paramerter.agentnumber * Paramerter.layernumber);
@@ -124,7 +124,7 @@ public class DateOutputForOrignalWithProposedMethod2 {
         double total = 0,dispersion;
         for (int i = 0; i < Paramerter.layernumber; i++) {
             for (int j = 0; j < Paramerter.agentnumber; j++) {
-                total += (OriginalNetworkLayer.network[i].agent[j].opinion- average) * (OriginalNetworkLayer.network[i].agent[j].opinion- average);
+                total += (OriginalNetworkLayerWithProposedMethod2.network[i].agent[j].opinion- average) * (OriginalNetworkLayerWithProposedMethod2.network[i].agent[j].opinion- average);
             }
         }
         dispersion = total / (Paramerter.agentnumber * Paramerter.layernumber);
@@ -137,8 +137,8 @@ public class DateOutputForOrignalWithProposedMethod2 {
         for(int i=0; i<Paramerter.layernumber;i++){
             tmptotal=0;
             for(int j=0;j<Paramerter.agentnumber;j++){
-                if(OriginalNetworkLayer.network[i].agent[j].express)
-                    tmptotal+=OriginalNetworkLayer.network[i].agent[j].opinion;
+                if(OriginalNetworkLayerWithProposedMethod2.network[i].agent[j].express)
+                    tmptotal+=OriginalNetworkLayerWithProposedMethod2.network[i].agent[j].opinion;
             }
             tmpaverage = tmptotal/Paramerter.agentnumber;
             if(maxaverage<tmpaverage)
@@ -154,7 +154,7 @@ public class DateOutputForOrignalWithProposedMethod2 {
         double persentage;
         for(int i=0;i<Paramerter.layernumber;i++){
             for(int j=0;j<Paramerter.agentnumber;j++){
-                if(OriginalNetworkLayer.network[i].agent[j].express)
+                if(OriginalNetworkLayerWithProposedMethod2.network[i].agent[j].express)
                     total++;
             }
         }
@@ -167,11 +167,11 @@ public class DateOutputForOrignalWithProposedMethod2 {
         double persentage;
         for(int i=0;i<Paramerter.layernumber;i++){
             for(int j=0;j<Paramerter.agentnumber;j++){
-                if(OriginalNetworkLayer.network[i].friendagent[j].size()==0)
+                if(OriginalNetworkLayerWithProposedMethod2.network[i].friendagent[j].size()==0)
                     continue;
-                for(int k=0;k<OriginalNetworkLayer.network[i].friendagent[j].size();k++){
+                for(int k=0;k<OriginalNetworkLayerWithProposedMethod2.network[i].friendagent[j].size();k++){
                     total++;
-                    if(Math.abs(OriginalNetworkLayer.network[i].agent[j].opinion-OriginalNetworkLayer.network[i].friendagent[j].get(k).opinion)==0)
+                    if(Math.abs(OriginalNetworkLayerWithProposedMethod2.network[i].agent[j].opinion-OriginalNetworkLayerWithProposedMethod2.network[i].friendagent[j].get(k).opinion)==0)
                         consensus++;
                 }
             }
