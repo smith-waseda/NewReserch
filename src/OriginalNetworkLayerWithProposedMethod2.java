@@ -106,8 +106,11 @@ public class OriginalNetworkLayerWithProposedMethod2 {
         for(int i=0;i<maxagentnumber;i++){
             if(allfriends[i].size() ==0 || Paramerter.rand.nextDouble() > Paramerter.connectivity)
                 continue;
-            fa = allfriends[i].get(Paramerter.rand.nextInt(allfriends[i].size()));
-            silenceAgent(i,fa);
+            //fa = allfriends[i].get(Paramerter.rand.nextInt(allfriends[i].size()));
+            for(int j=0;j<allfriends[i].size();j++){
+                fa = allfriends[i].get(j);
+                silenceAgent(i,fa);
+            }
         }
     }
 
@@ -125,7 +128,7 @@ public class OriginalNetworkLayerWithProposedMethod2 {
         if((maxopinion-minopinion)>Paramerter.allowance){
             for(int i=0;i<maxlayernumber;i++){
                 if(network[i].friendagent[an1].contains(network[i].agent[an2])){
-                    network[i].agent[an1].express = false;
+                    network[i].agent[an2].express = false;
                 }
             }
         }

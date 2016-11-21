@@ -171,7 +171,7 @@ public class DateOutputForOrignalWithProposedMethod2 {
                     continue;
                 for(int k=0;k<OriginalNetworkLayerWithProposedMethod2.network[i].friendagent[j].size();k++){
                     total++;
-                    if(Math.abs(OriginalNetworkLayerWithProposedMethod2.network[i].agent[j].opinion-OriginalNetworkLayerWithProposedMethod2.network[i].friendagent[j].get(k).opinion)==0)
+                    if(Math.abs(OriginalNetworkLayerWithProposedMethod2.network[i].agent[j].opinion-OriginalNetworkLayerWithProposedMethod2.network[i].friendagent[j].get(k).opinion)<=Paramerter.confornitybias)
                         consensus++;
                 }
             }

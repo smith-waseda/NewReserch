@@ -81,8 +81,8 @@ public class Test {
         for(int i=0;i<Paramerter.convergencenumber;i++){
             OriginalNetworkLayerWithProposedMethod2.formationOfOpinion();
             OriginalNetworkLayerWithProposedMethod2.pressureAndSilence();
-            if(i==30000)
-                opinionAspect(30000);
+            if(i==9999)
+                opinionAspect(9999);
         }
     }
 
@@ -93,10 +93,10 @@ public class Test {
         try {
             file = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\opinionaspect7.csv");
             if (checkBeforeWritefile(file)){
-                filewriter = new FileWriter(file,true);
+                filewriter = new FileWriter(file);
                 filewriter.write(0+","+1+"\n");
+                filewriter.write("接続次数"+Paramerter.probability+"許容度"+Paramerter.confornitybias+"ネットワークの接続性"+Paramerter.connectivity+"\n");
                 for(int i=0;i<Paramerter.agentnumber;i++){
-                    filewriter.write("接続次数"+Paramerter.probability+"許容度"+Paramerter.confornitybias+"ネットワークの接続性"+Paramerter.connectivity+"\n");
                     filewriter.write(loopnumber + "," + "0" + ","+i+"," + OriginalNetworkLayerWithProposedMethod2.network[0].agent[i].opinion
                             +"1" + ","+i+"," + OriginalNetworkLayerWithProposedMethod2.network[1].agent[i].opinion
                             +"2" + ","+i+"," + OriginalNetworkLayerWithProposedMethod2.network[2].agent[i].opinion
