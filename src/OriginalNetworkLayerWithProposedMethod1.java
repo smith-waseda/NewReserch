@@ -98,11 +98,8 @@ public class OriginalNetworkLayerWithProposedMethod1 {
         for(int i=0;i<maxagentnumber;i++){
             if(allfriends[i].size() ==0 || Paramerter.rand.nextDouble() > Paramerter.connectivity)
                 continue;
-            //fa = allfriends[i].get(Paramerter.rand.nextInt(allfriends[i].size()));
-            for(int j=0;j<allfriends[i].size();j++){
-                fa = allfriends[i].get(j);
-                silenceAgent(i,fa);
-            }
+            fa = allfriends[i].get(Paramerter.rand.nextInt(allfriends[i].size()));
+            silenceAgent(i,fa);
         }
     }
 
