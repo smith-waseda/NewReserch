@@ -40,7 +40,7 @@ public class Test {
     }
 
     public static void generateGraphWithProposedMethod1(){
-        network1 = new AgentRandomNetworkWithProposedMethod1(0);
+        network1 = new AgentRandomNetworkWithProposedMethod1(0,100);
         network1.generateGraph();
         //network1.displayLinking();
         network1.displayOpinion();

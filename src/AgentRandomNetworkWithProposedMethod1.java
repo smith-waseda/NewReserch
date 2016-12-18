@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class AgentRandomNetworkWithProposedMethod1 {
     private static final double p = Paramerter.probability;
     private static final int maxagentnumber = ParamerterWithProposedMethod1.agentnumber;
-    public static final int choosedagentnumber = ParamerterWithProposedMethod1.agentnumberinnetwork;
+    public static int choosedagentnumber = 100; //デフォルト
     public Agent[] agent;
     public ArrayList<Agent>[] friendagent;
 
@@ -32,7 +32,8 @@ public class AgentRandomNetworkWithProposedMethod1 {
         }
     }
 
-    public AgentRandomNetworkWithProposedMethod1(int layernumber) {
+    public AgentRandomNetworkWithProposedMethod1(int layernumber, int agentnumberinnetwork) {
+        choosedagentnumber = agentnumberinnetwork;
         agent = new Agent[maxagentnumber];
         ChoosingAgent();
         for (int i = 0; i < choosedagentnumber; i++){
@@ -90,5 +91,9 @@ public class AgentRandomNetworkWithProposedMethod1 {
         for(int i = 0; i < choosedagentnumber; i++) {
             System.out.println("Agentnumber["+choosedagent.get(i)+"] Express: "+agent[choosedagent.get(i)].express);
         }
+    }
+
+    public void changeChosedAgentNumber(int i){
+        choosedagentnumber = i;
     }
 }

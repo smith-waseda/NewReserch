@@ -117,7 +117,7 @@ public class DateOutputForOriginalWithProposedMethod1 {
                 total += OriginalNetworkLayerWithProposedMethod1.network[i].agent[an].opinion;
             }
         }
-        average = total / (ParamerterWithProposedMethod1.agentnumberinnetwork* ParamerterWithProposedMethod1.layernumber);
+        average = total / ParamerterWithProposedMethod1.agentnumber;
         return average;
     }
 
@@ -131,7 +131,7 @@ public class DateOutputForOriginalWithProposedMethod1 {
                 total += (OriginalNetworkLayerWithProposedMethod1.network[i].agent[an].opinion- average) * (OriginalNetworkLayerWithProposedMethod1.network[i].agent[an].opinion- average);
             }
         }
-        dispersion = total / (ParamerterWithProposedMethod1.agentnumberinnetwork* ParamerterWithProposedMethod1.layernumber);
+        dispersion = total / ParamerterWithProposedMethod1.agentnumber;
         return dispersion;
     }
 
@@ -166,7 +166,7 @@ public class DateOutputForOriginalWithProposedMethod1 {
                     total++;
             }
         }
-        persentage =(double) total / (ParamerterWithProposedMethod1.agentnumberinnetwork* Paramerter.layernumber);
+        persentage =(double) total / ParamerterWithProposedMethod1.agentnumber;
         return persentage;
     }
 
