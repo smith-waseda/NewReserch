@@ -11,20 +11,19 @@ public class Test {
     public static File file;
     public static FileWriter filewriter;
     public static AgentRandomNetwork network;
+    public static AgentRandomNetworkWithProposedMethod1 network1;
     public static void main(String[] args) {
 
-    /*
-        OriginalNetworkLayer.init();
-        OriginalNetworkLayer.displayNetwork();
+        OriginalNetworkLayerWithProposedMethod1.init();
+        OriginalNetworkLayerWithProposedMethod1.displayNetwork();
         for(int i=0;i<Paramerter.convergencenumber;i++){
-            OriginalNetworkLayer.formationOfOpinion();
-            OriginalNetworkLayer.pressureAndSilence();
+            OriginalNetworkLayerWithProposedMethod1.formationOfOpinion();
+            OriginalNetworkLayerWithProposedMethod1.pressureAndSilence();
             //OriginalNetworkLayer.displayNetwork();
         }
-        OriginalNetworkLayer.displayNetwork();
-        graphicRandomNetwork(0);
-     */
-        originalReserchfottest();
+        OriginalNetworkLayerWithProposedMethod1.displayNetwork();
+        //graphicRandomNetwork(0);
+
     }
 
     public static void GenerateGraph() {
@@ -39,6 +38,14 @@ public class Test {
                 network.agent[i].opinion = rand;
         }
     }
+
+    public static void generateGraphWithProposedMethod1(){
+        network1 = new AgentRandomNetworkWithProposedMethod1(0);
+        network1.generateGraph();
+        //network1.displayLinking();
+        network1.displayOpinion();
+    }
+
 
     public static double averageOfUniformRandomNumbers(){
         double total=0,average=0;
