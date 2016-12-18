@@ -18,7 +18,7 @@ public class OriginalNetworkLayerWithProposedMethod1 {
          * make shuffle arraylist
          * make network
          */
-        initOriginal();
+        initPower();
 
         /**
          * set agent opinion
@@ -53,8 +53,8 @@ public class OriginalNetworkLayerWithProposedMethod1 {
     public static void displayNetwork(){
         for(int i=0;i<maxlayernumber;i++) {
             System.out.println("network["+i+"]");
-            //network[i].displayLinking();
-            network[i].displayOpinion();
+            network[i].displayLinking();
+            //network[i].displayOpinion();
             //network[i].displayExpress();
         }
     }
@@ -188,6 +188,10 @@ public class OriginalNetworkLayerWithProposedMethod1 {
         network[5] = new AgentRandomNetworkWithProposedMethod1(5,100);
         network[6] = new AgentRandomNetworkWithProposedMethod1(6,50);
         network[7] = new AgentRandomNetworkWithProposedMethod1(7,25);
+
+        for(int i=0;i<ParamerterWithProposedMethod1.layernumber;i++){
+            network[i].generateGraph();
+        }
     }
 
     /**
@@ -232,6 +236,10 @@ public class OriginalNetworkLayerWithProposedMethod1 {
         network[5] = new AgentRandomNetworkWithProposedMethod1(5,200);
         network[6] = new AgentRandomNetworkWithProposedMethod1(6,200);
         network[7] = new AgentRandomNetworkWithProposedMethod1(7,200);
+
+        for(int i=0;i<ParamerterWithProposedMethod1.layernumber;i++){
+            network[i].generateGraph();
+        }
     }
 }
 

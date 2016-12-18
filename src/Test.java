@@ -14,16 +14,16 @@ public class Test {
     public static AgentRandomNetworkWithProposedMethod1 network1;
     public static void main(String[] args) {
 
+        /*
         OriginalNetworkLayerWithProposedMethod1.init();
         OriginalNetworkLayerWithProposedMethod1.displayNetwork();
         for(int i=0;i<Paramerter.convergencenumber;i++){
             OriginalNetworkLayerWithProposedMethod1.formationOfOpinion();
             OriginalNetworkLayerWithProposedMethod1.pressureAndSilence();
-            //OriginalNetworkLayer.displayNetwork();
         }
         OriginalNetworkLayerWithProposedMethod1.displayNetwork();
-        //graphicRandomNetwork(0);
-
+        */
+        generateGraphWithProposedMethod1();
     }
 
     public static void GenerateGraph() {
@@ -40,10 +40,10 @@ public class Test {
     }
 
     public static void generateGraphWithProposedMethod1(){
-        network1 = new AgentRandomNetworkWithProposedMethod1(0,100);
+        network1 = new AgentRandomNetworkWithProposedMethod1(0,500);
         network1.generateGraph();
-        //network1.displayLinking();
-        network1.displayOpinion();
+        network1.displayLinking();
+        //network1.displayOpinion();
     }
 
 

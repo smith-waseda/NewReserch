@@ -7,19 +7,19 @@ import java.util.ArrayList;
 public class AgentRandomNetworkWithProposedMethod1 {
     private static final double p = Paramerter.probability;
     private static final int maxagentnumber = ParamerterWithProposedMethod1.agentnumber;
-    public static int choosedagentnumber = 100; //デフォルト
+    public int choosedagentnumber = 100; //デフォルト
     public Agent[] agent;
     public ArrayList<Agent>[] friendagent;
 
     private static StringBuffer buf = new StringBuffer();
 
-    public ArrayList<Integer> choosedagent = new ArrayList<>();
     /**
      *↑ランダムに選んだ100体のエージェントを格納する
      */
+    public ArrayList<Integer> choosedagent = new ArrayList<>();
 
     /**
-     * 全エージェントの中から、100体のエージェントを選ぶ
+     * 全エージェントの中から、choosedagentnumber体のエージェントを選ぶ
      */
     public void ChoosingAgent(){
         int tmp;
