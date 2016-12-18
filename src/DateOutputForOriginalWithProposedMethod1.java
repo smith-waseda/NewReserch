@@ -10,7 +10,7 @@ public class DateOutputForOriginalWithProposedMethod1 {
     public static FileWriter filewriter1,filewriter2,filewriter3,filewriter4,filewriter5;
     public static int looptime = Paramerter.numberoftrial;
     public static void main(String[] args) {
-        outPut(0.5);
+        outPut(0.3);
     }
 
     public static void outPut(double allowance){
@@ -20,31 +20,31 @@ public class DateOutputForOriginalWithProposedMethod1 {
         double total512,average512;
         System.out.println("test:"+allowance);
         try {
-            file1 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\411.csv");
+            file1 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法1\\411.csv");
             if ( !file1.exists())
                 file1 = new File("E:\\卒論出力\\提案手法1\\411.csv");
             if ( !file1.exists())
                 file1 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test1.csv");
 
-            file2 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\412.csv");
+            file2 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法1\\412.csv");
             if ( !file2.exists())
                 file2 = new File("E:\\卒論出力\\提案手法1\\412.csv");
             if ( !file2.exists())
                 file2 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test2.csv");
 
-            file3 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\511.csv");
+            file3 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法1\\511.csv");
             if ( !file3.exists())
                 file3 = new File("E:\\卒論出力\\提案手法1\\511.csv");
             if ( !file3.exists())
                 file3 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test3.csv");
 
-            file4 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\512.csv");
+            file4 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法1\\512.csv");
             if ( !file4.exists())
                 file4 = new File("E:\\卒論出力\\提案手法1\\512.csv");
             if ( !file4.exists())
                 file4 = new File("C:\\Users\\s.nakamura\\Google ドライブ\\test4.csv");
 
-            file5 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法2\\opinionaspect2.csv");
+            file5 = new File("D:\\4年\\研究室\\卒業論文\\研究出力\\提案手法1\\opinionaspect2.csv");
             if ( !file5.exists())
                 file5 = new File("E:\\卒論出力\\提案手法1\\opinionaspect2.csv");
             if ( !file5.exists())
