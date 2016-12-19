@@ -18,7 +18,7 @@ public class OriginalNetworkLayerWithProposedMethod1 {
          * make shuffle arraylist
          * make network
          */
-        initPower();
+        initOriginal();
 
         /**
          * set agent opinion

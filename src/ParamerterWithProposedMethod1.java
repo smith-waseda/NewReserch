@@ -2,7 +2,7 @@
  * Created by Sumi on 2016/12/16.
  */
 public class ParamerterWithProposedMethod1 extends Paramerter {
-    public static final int agentnumber = 800;
+    public static final int agentnumber = 100;
     public static int[] agentnumberinnetwork = new int[ParamerterWithProposedMethod1.layernumber];
 
     ParamerterWithProposedMethod1(){
