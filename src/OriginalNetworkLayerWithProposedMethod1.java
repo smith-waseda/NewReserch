@@ -5,7 +5,7 @@ import java.util.Collections;
  * Created by Sumi on 2016/12/16.
  */
 public class OriginalNetworkLayerWithProposedMethod1 {
-    public static final int maxlayernumber = ParamerterWithProposedMethod1.layernumber;
+    public static int maxlayernumber;
     public static final int maxagentnumber = ParamerterWithProposedMethod1.agentnumber;
     public static AgentRandomNetworkWithProposedMethod1[] network;
     public static ArrayList<Integer>[] shufflenumber;
@@ -13,21 +13,21 @@ public class OriginalNetworkLayerWithProposedMethod1 {
 
     private static StringBuffer buf = new StringBuffer();
 
-    public static void init(){
+    public static void init(int type){
         /**
          * make shuffle arraylist
          * make network
          */
-        initOriginal();
+        initNetwork(type);
 
         /**
          * set agent opinion
          */
         double rand;
         for(int i=0;i<maxlayernumber;i++){
-            for(int j=0;j<network[i].choosedagentnumber;j++){
+            for(int j=0;j<maxagentnumber;j++){
                 rand = Paramerter.rand.nextDouble();
-                network[i].agent[network[i].choosedagent.get(j)].opinion = rand;
+                network[i].agent[j].opinion = rand;
             }
         }
 
@@ -50,12 +50,48 @@ public class OriginalNetworkLayerWithProposedMethod1 {
         }
     }
 
+    /**
+     * ネットワークの構成
+     * @param type　ネットワークの組み方
+     */
+    public static void initNetwork(int type) {
+        ParamerterWithProposedMethod1.Dataset(type);
+        maxlayernumber = ParamerterWithProposedMethod1.layernumber;
+        shufflenumber = new ArrayList[maxlayernumber];
+        for (int i = 0; i < maxlayernumber; i++) {
+            shufflenumber[i] = new ArrayList<>();
+        }
+        for (int i = 0; i < maxlayernumber; i++) {
+            for (int j = 0; j < ParamerterWithProposedMethod1.agentnumberinnetwork[i]; j++) {
+                shufflenumber[i].add(j);
+            }
+        }
+        network = new AgentRandomNetworkWithProposedMethod1[maxlayernumber];
+        for (int i = 0; i < maxlayernumber; i++) {
+            network[i] = new AgentRandomNetworkWithProposedMethod1(i, ParamerterWithProposedMethod1.agentnumberinnetwork[i]);
+            network[i].generateGraph();
+        }
+    }
+
     public static void displayNetwork(){
         for(int i=0;i<maxlayernumber;i++) {
             System.out.println("network["+i+"]");
-            network[i].displayLinking();
-            //network[i].displayOpinion();
-            //network[i].displayExpress();
+            //network[i].displayLinking();
+            network[i].displayOpinion();
+            network[i].displayExpress();
+        }
+    }
+
+    public static void displayAllFriendsNetwork(){
+        for(int i=0;i<maxagentnumber;i++){
+            for (int j = 0; j < allfriends[i].size(); j++) {
+                String element = String.valueOf(allfriends[i].get(j));
+                buf.append(element);
+                buf.append(",");
+            }
+            String elementline = buf.toString();
+            buf.delete(0, buf.length());
+            System.out.println(i + ":" + elementline);
         }
     }
 
@@ -120,122 +156,6 @@ public class OriginalNetworkLayerWithProposedMethod1 {
                     network[i].agent[an2].express = false;
                 }
             }
-        }
-    }
-
-    /**
-     * 100個のコミュニティ8個パターン
-     */
-    public static void initOriginal(){
-        shufflenumber = new ArrayList[maxlayernumber];
-        for(int i=0; i< maxlayernumber; i++){
-            shufflenumber[i] = new ArrayList<>();
-        }
-        for(int i=0;i<ParamerterWithProposedMethod1.layernumber;i++) {
-            for (int j = 0; j < 100; j++) {
-                shufflenumber[i].add(j);
-            }
-        }
-        network = new AgentRandomNetworkWithProposedMethod1[maxlayernumber];
-        for(int i=0; i<maxlayernumber; i++){
-            network[i] = new AgentRandomNetworkWithProposedMethod1(i,100);
-            network[i].generateGraph();
-        }
-    }
-
-    /**
-     * 正規分布
-     */
-    public static void initNormalDistribution(){
-        shufflenumber = new ArrayList[maxlayernumber];
-        for(int i=0; i< maxlayernumber; i++){
-            shufflenumber[i] = new ArrayList<>();
-        }
-        for (int j = 0; j < 25; j++) {
-            shufflenumber[0].add(j);
-        }
-        for (int j = 0; j < 50; j++) {
-            shufflenumber[1].add(j);
-        }
-        for (int j = 0; j < 100; j++) {
-            shufflenumber[2].add(j);
-        }
-        for (int j = 0; j < 200; j++) {
-            shufflenumber[3].add(j);
-        }
-        for (int j = 0; j < 200; j++) {
-            shufflenumber[4].add(j);
-        }
-        for (int j = 0; j < 100; j++) {
-            shufflenumber[5].add(j);
-        }
-        for (int j = 0; j < 50; j++) {
-            shufflenumber[6].add(j);
-        }
-        for (int j = 0; j < 25; j++) {
-            shufflenumber[7].add(j);
-        }
-
-        network = new AgentRandomNetworkWithProposedMethod1[maxlayernumber];
-        network[0] = new AgentRandomNetworkWithProposedMethod1(0,25);
-        network[1] = new AgentRandomNetworkWithProposedMethod1(1,50);
-        network[2] = new AgentRandomNetworkWithProposedMethod1(2,100);
-        network[3] = new AgentRandomNetworkWithProposedMethod1(3,200);
-        network[4] = new AgentRandomNetworkWithProposedMethod1(4,200);
-        network[5] = new AgentRandomNetworkWithProposedMethod1(5,100);
-        network[6] = new AgentRandomNetworkWithProposedMethod1(6,50);
-        network[7] = new AgentRandomNetworkWithProposedMethod1(7,25);
-
-        for(int i=0;i<ParamerterWithProposedMethod1.layernumber;i++){
-            network[i].generateGraph();
-        }
-    }
-
-    /**
-     * べき乗則
-     */
-    public static void initPower(){
-        shufflenumber = new ArrayList[maxlayernumber];
-        for(int i=0; i< maxlayernumber; i++){
-            shufflenumber[i] = new ArrayList<>();
-        }
-        for (int j = 0; j < 500; j++) {
-            shufflenumber[0].add(j);
-        }
-        for (int j = 0; j < 400; j++) {
-            shufflenumber[1].add(j);
-        }
-        for (int j = 0; j < 400; j++) {
-            shufflenumber[2].add(j);
-        }
-        for (int j = 0; j < 200; j++) {
-            shufflenumber[3].add(j);
-        }
-        for (int j = 0; j < 200; j++) {
-            shufflenumber[4].add(j);
-        }
-        for (int j = 0; j < 200; j++) {
-            shufflenumber[5].add(j);
-        }
-        for (int j = 0; j < 200; j++) {
-            shufflenumber[6].add(j);
-        }
-        for (int j = 0; j < 200; j++) {
-            shufflenumber[7].add(j);
-        }
-
-        network = new AgentRandomNetworkWithProposedMethod1[maxlayernumber];
-        network[0] = new AgentRandomNetworkWithProposedMethod1(0,500);
-        network[1] = new AgentRandomNetworkWithProposedMethod1(1,400);
-        network[2] = new AgentRandomNetworkWithProposedMethod1(2,400);
-        network[3] = new AgentRandomNetworkWithProposedMethod1(3,200);
-        network[4] = new AgentRandomNetworkWithProposedMethod1(4,200);
-        network[5] = new AgentRandomNetworkWithProposedMethod1(5,200);
-        network[6] = new AgentRandomNetworkWithProposedMethod1(6,200);
-        network[7] = new AgentRandomNetworkWithProposedMethod1(7,200);
-
-        for(int i=0;i<ParamerterWithProposedMethod1.layernumber;i++){
-            network[i].generateGraph();
         }
     }
 }

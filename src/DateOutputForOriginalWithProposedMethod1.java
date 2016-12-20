@@ -10,10 +10,11 @@ public class DateOutputForOriginalWithProposedMethod1 {
     public static FileWriter filewriter1,filewriter2,filewriter3,filewriter4,filewriter5;
     public static int looptime = Paramerter.numberoftrial;
     public static void main(String[] args) {
-        outPut(0.3);
+        outPut(0.3,0);
     }
 
-    public static void outPut(double allowance){
+
+    public static void outPut(double allowance,int type){
         double total411,average411;
         double total412,average412;
         double total511,average511;
@@ -65,7 +66,7 @@ public class DateOutputForOriginalWithProposedMethod1 {
                     total511=0;
                     total512=0;
                     for (int j = 0; j < looptime; j++) {
-                        ReserchExperiment.originalReserchWithProposedMethod1();
+                        ReserchExperiment.originalReserchWithProposedMethod1(type);
                         total411 += evaluateDispersion();
                         total412 += differenceBetweenNetworkLayer();
                         total511 += percentageOfExpress();
@@ -117,7 +118,7 @@ public class DateOutputForOriginalWithProposedMethod1 {
                 total += OriginalNetworkLayerWithProposedMethod1.network[i].agent[an].opinion;
             }
         }
-        average = total / ParamerterWithProposedMethod1.agentnumber;
+        average = total / ParamerterWithProposedMethod1.returnAllAgentNumberInNetwork();
         return average;
     }
 
@@ -131,7 +132,7 @@ public class DateOutputForOriginalWithProposedMethod1 {
                 total += (OriginalNetworkLayerWithProposedMethod1.network[i].agent[an].opinion- average) * (OriginalNetworkLayerWithProposedMethod1.network[i].agent[an].opinion- average);
             }
         }
-        dispersion = total / ParamerterWithProposedMethod1.agentnumber;
+        dispersion = total / ParamerterWithProposedMethod1.returnAllAgentNumberInNetwork();
         return dispersion;
     }
 
@@ -166,7 +167,7 @@ public class DateOutputForOriginalWithProposedMethod1 {
                     total++;
             }
         }
-        persentage =(double) total / ParamerterWithProposedMethod1.agentnumber;
+        persentage =(double) total / ParamerterWithProposedMethod1.returnAllAgentNumberInNetwork();
         return persentage;
     }
 

@@ -18,8 +18,8 @@ public class ReserchExperiment {
         }
     }
 
-    public static void originalReserchWithProposedMethod1(){
-        OriginalNetworkLayerWithProposedMethod1.init();
+    public static void originalReserchWithProposedMethod1(int type){
+        OriginalNetworkLayerWithProposedMethod1.init(type);
         for(int i=0;i<ParamerterWithProposedMethod1.convergencenumber;i++){
             OriginalNetworkLayerWithProposedMethod1.formationOfOpinion();
             OriginalNetworkLayerWithProposedMethod1.pressureAndSilence();

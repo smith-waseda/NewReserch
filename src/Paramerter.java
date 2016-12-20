@@ -8,9 +8,9 @@ public class Paramerter {
      * 実験でのループ回数
      */
     public static  final int numberoftrial = 100;
-    public static final int convergencenumber = 5000;
+    public static final int convergencenumber = 10000;
     public static int agentnumber = 100;
-    public static final int layernumber = 8;
+    public static int layernumber = 8;
     /**
      * すり合わせ許容度
      */

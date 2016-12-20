@@ -5,18 +5,31 @@ import java.util.ArrayList;
  */
 
 public class AgentRandomNetworkWithProposedMethod1 {
-    private static final double p = Paramerter.probability;
+    private static final double p = ParamerterWithProposedMethod1.probability;
     private static final int maxagentnumber = ParamerterWithProposedMethod1.agentnumber;
-    public int choosedagentnumber = 100; //デフォルト
+    public int choosedagentnumber; //デフォルト
     public Agent[] agent;
     public ArrayList<Agent>[] friendagent;
 
     private static StringBuffer buf = new StringBuffer();
 
     /**
-     *↑ランダムに選んだ100体のエージェントを格納する
+     *ランダムに選んだ100体のエージェントを格納する
      */
     public ArrayList<Integer> choosedagent = new ArrayList<>();
+
+    public AgentRandomNetworkWithProposedMethod1(int layernumber, int agentnumberinnetwork) {
+        choosedagentnumber = agentnumberinnetwork;
+        ChoosingAgent();
+        agent = new Agent[maxagentnumber];
+        for (int i = 0; i < maxagentnumber; i++){
+            agent[i] = new Agent(i,layernumber);
+        }
+        friendagent = new ArrayList[maxagentnumber];
+        for (int i = 0; i < maxagentnumber; i++){
+            friendagent[i] = new ArrayList<>();
+        }
+    }
 
     /**
      * 全エージェントの中から、choosedagentnumber体のエージェントを選ぶ
@@ -32,23 +45,13 @@ public class AgentRandomNetworkWithProposedMethod1 {
         }
     }
 
-    public AgentRandomNetworkWithProposedMethod1(int layernumber, int agentnumberinnetwork) {
-        choosedagentnumber = agentnumberinnetwork;
-        agent = new Agent[maxagentnumber];
-        ChoosingAgent();
-        for (int i = 0; i < choosedagentnumber; i++){
-            agent[choosedagent.get(i)] = new Agent(choosedagent.get(i),layernumber);
-        }
-        friendagent = new ArrayList[maxagentnumber];
-        for (int i = 0; i < maxagentnumber; i++){
-            friendagent[i] = new ArrayList<>();
-        }
-    }
-
+    /**
+     * これはランダムネットワーク
+     */
     public void generateGraph() {
         for (int i = 0; i < choosedagentnumber; i++) {
             for (int j = i; j <choosedagentnumber; j++) {
-                if (choosedagent.get(i) == choosedagent.get(j)) continue;
+                if (i == j) continue;
                 if (p >= Paramerter.rand.nextDouble()) {
                     friendagent[choosedagent.get(i)].add(agent[choosedagent.get(j)]);
                 }
@@ -91,9 +94,5 @@ public class AgentRandomNetworkWithProposedMethod1 {
         for(int i = 0; i < choosedagentnumber; i++) {
             System.out.println("Agentnumber["+choosedagent.get(i)+"] Express: "+agent[choosedagent.get(i)].express);
         }
-    }
-
-    public void changeChosedAgentNumber(int i){
-        choosedagentnumber = i;
     }
 }

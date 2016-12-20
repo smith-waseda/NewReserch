@@ -14,16 +14,14 @@ public class Test {
     public static AgentRandomNetworkWithProposedMethod1 network1;
     public static void main(String[] args) {
 
-        /*
-        OriginalNetworkLayerWithProposedMethod1.init();
+        OriginalNetworkLayerWithProposedMethod1.init(0);
         OriginalNetworkLayerWithProposedMethod1.displayNetwork();
         for(int i=0;i<Paramerter.convergencenumber;i++){
             OriginalNetworkLayerWithProposedMethod1.formationOfOpinion();
             OriginalNetworkLayerWithProposedMethod1.pressureAndSilence();
         }
         OriginalNetworkLayerWithProposedMethod1.displayNetwork();
-        */
-        generateGraphWithProposedMethod1();
+        //OriginalNetworkLayerWithProposedMethod1.displayAllFriendsNetwork();
     }
 
     public static void GenerateGraph() {
