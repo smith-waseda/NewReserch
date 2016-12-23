@@ -5,7 +5,7 @@ public class ParamerterWithProposedMethod1 extends Paramerter {
     public static final int agentnumber = 100;
     public static int layernumber = 0;
     public static int[] agentnumberinnetwork;
-    public static int allagentnumberinnetwork;
+    //public static int allagentnumberinnetwork;
 
     /**
      * いっかいの試行で保存するデータ先
