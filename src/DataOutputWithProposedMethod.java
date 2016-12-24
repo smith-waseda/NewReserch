@@ -124,10 +124,14 @@ public class DataOutputWithProposedMethod {
          * choosedagentinlayerはすべてのネットワークのエージェントの数の合計
          * opinionagentはあるネットワークの中の意見を表明しているエージェントの数
          * opinionagentinlayerはすべてのネットワークの意見を表明しているエージェントの数
-         * expressの方はそれらの割合
+         * edgetotalはネットワーク内のエッジの数
+         * consensusinnetworkはネットワーク内のエッジでコンセンサスを得ている数
+         * consensusinnetworkはそれらの割合
          */
         int an,choosedagentinlayer=0,opinionagent=0,opinionagentinlayer=0;
         double expresspersentage,expresspersentageinlayer;
+        int edgetotal=0,consensusinnetwork=0;
+        double consensuspersentage;
         try {
             file = new File(pathname);
             if (checkBeforeWritefile(file)) {
@@ -135,9 +139,21 @@ public class DataOutputWithProposedMethod {
 
                 for (int i = 0; i < ParamerterWithProposedMethod1.layernumber; i++) {
                     for (int j = 0; j < ParamerterWithProposedMethod1.agentnumberinnetwork[i]; j++) {
+
+                        /*意見を表明している割合*/
                         an = OriginalNetworkLayerWithProposedMethod1.network[i].choosedagent.get(j);
                         if (OriginalNetworkLayerWithProposedMethod1.network[i].agent[an].express) {
                             opinionagent++;
+                        }
+
+                        /*コンセンサスの取れている割合*/
+                        if (OriginalNetworkLayerWithProposedMethod1.network[i].friendagent[an].size() == 0){
+                            continue;
+                        }
+                        edgetotal+=OriginalNetworkLayerWithProposedMethod1.network[i].friendagent[an].size();
+                        for(int k=0;k<OriginalNetworkLayerWithProposedMethod1.network[i].friendagent[an].size();k++){
+                            if(Math.abs(OriginalNetworkLayerWithProposedMethod1.network[i].agent[an].opinion-OriginalNetworkLayerWithProposedMethod1.network[i].friendagent[an].get(k).opinion)<=Paramerter.confornitybias)
+                                consensusinnetwork++;
                         }
                     }
 
@@ -145,18 +161,26 @@ public class DataOutputWithProposedMethod {
                     opinionagentinlayer += opinionagent;
                     choosedagentinlayer += ParamerterWithProposedMethod1.agentnumberinnetwork[i];
 
-                    expresspersentage = opinionagent / ParamerterWithProposedMethod1.agentnumberinnetwork[i];
+                    expresspersentage = (double)opinionagent / (double)ParamerterWithProposedMethod1.agentnumberinnetwork[i];
                     opinionagent=0;
                     buf.append(expresspersentage);
                     buf.append(",");
+
+                    consensuspersentage = (double)consensusinnetwork / (double) edgetotal;
+                    edgetotal=0;
+                    consensusinnetwork=0;
+                    sub.append(consensuspersentage);
+                    sub.append(",");
                 }
-                expresspersentageinlayer = opinionagentinlayer/choosedagentinlayer;
+                expresspersentageinlayer = (double)opinionagentinlayer/(double)choosedagentinlayer;
                 buf.append(expresspersentageinlayer);
                 buf.append(",");
 
                 writing = buf.toString();
                 buf.delete(0, buf.length());
-                filewriter.write(writing + "\n");
+                subwrinting = sub.toString();
+                sub.delete(0,sub.length());
+                filewriter.write(writing + "XXX,"+subwrinting+"\n");
 
                 filewriter.close();
             } else {

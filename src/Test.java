@@ -15,7 +15,7 @@ public class Test {
     public static void main(String[] args) {
 
         OriginalNetworkLayerWithProposedMethod1.init(0);
-        OriginalNetworkLayerWithProposedMethod1.displayNetwork();
+        //OriginalNetworkLayerWithProposedMethod1.displayNetwork();
         for(int i=0;i<Paramerter.convergencenumber;i++){
             OriginalNetworkLayerWithProposedMethod1.formationOfOpinion();
             OriginalNetworkLayerWithProposedMethod1.pressureAndSilence();

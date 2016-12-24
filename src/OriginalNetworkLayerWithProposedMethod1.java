@@ -77,7 +77,7 @@ public class OriginalNetworkLayerWithProposedMethod1 {
         for(int i=0;i<maxlayernumber;i++) {
             System.out.println("network["+i+"]");
             //network[i].displayLinking();
-            network[i].displayOpinion();
+            //network[i].displayOpinion();
             network[i].displayExpress();
         }
     }

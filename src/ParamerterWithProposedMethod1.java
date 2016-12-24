@@ -7,11 +7,6 @@ public class ParamerterWithProposedMethod1 extends Paramerter {
     public static int[] agentnumberinnetwork;
     //public static int allagentnumberinnetwork;
 
-    /**
-     * いっかいの試行で保存するデータ先
-     */
-    public static String pathname;
-
     public static int returnAllAgentNumberInNetwork(){
         int total=0;
         for(int i=0;i<layernumber;i++){
