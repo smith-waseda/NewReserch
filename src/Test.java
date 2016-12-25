@@ -1,5 +1,3 @@
-import org.apache.commons.math3.random.MersenneTwister;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,17 +9,17 @@ public class Test {
     public static File file;
     public static FileWriter filewriter;
     public static AgentRandomNetwork network;
-    public static AgentRandomNetworkWithProposedMethod1 network1;
+    public static AgentRandomNetworkWithProposedMethod network1;
     public static void main(String[] args) {
 
-        OriginalNetworkLayerWithProposedMethod1.init(0);
-        //OriginalNetworkLayerWithProposedMethod1.displayNetwork();
+        OriginalNetworkLayerWithProposedMethod.init(0);
+        //OriginalNetworkLayerWithProposedMethod.displayNetwork();
         for(int i=0;i<Paramerter.convergencenumber;i++){
-            OriginalNetworkLayerWithProposedMethod1.formationOfOpinion();
-            OriginalNetworkLayerWithProposedMethod1.pressureAndSilence();
+            OriginalNetworkLayerWithProposedMethod.formationOfOpinion();
+            OriginalNetworkLayerWithProposedMethod.pressureAndSilence();
         }
-        OriginalNetworkLayerWithProposedMethod1.displayNetwork();
-        //OriginalNetworkLayerWithProposedMethod1.displayAllFriendsNetwork();
+        OriginalNetworkLayerWithProposedMethod.displayNetwork();
+        //OriginalNetworkLayerWithProposedMethod.displayAllFriendsNetwork();
     }
 
     public static void GenerateGraph() {
@@ -38,7 +36,7 @@ public class Test {
     }
 
     public static void generateGraphWithProposedMethod1(){
-        network1 = new AgentRandomNetworkWithProposedMethod1(0,500);
+        network1 = new AgentRandomNetworkWithProposedMethod(0,500);
         network1.generateGraph();
         network1.displayLinking();
         //network1.displayOpinion();

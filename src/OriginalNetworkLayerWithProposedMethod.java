@@ -4,10 +4,10 @@ import java.util.Collections;
 /**
  * Created by Sumi on 2016/12/16.
  */
-public class OriginalNetworkLayerWithProposedMethod1 {
+public class OriginalNetworkLayerWithProposedMethod {
     public static int maxlayernumber;
     public static final int maxagentnumber = ParamerterWithProposedMethod1.agentnumber;
-    public static AgentRandomNetworkWithProposedMethod1[] network;
+    public static AgentRandomNetworkWithProposedMethod[] network;
     public static ArrayList<Integer>[] shufflenumber;
     public static ArrayList<Integer>[] allfriends;
 
@@ -66,9 +66,9 @@ public class OriginalNetworkLayerWithProposedMethod1 {
                 shufflenumber[i].add(j);
             }
         }
-        network = new AgentRandomNetworkWithProposedMethod1[maxlayernumber];
+        network = new AgentRandomNetworkWithProposedMethod[maxlayernumber];
         for (int i = 0; i < maxlayernumber; i++) {
-            network[i] = new AgentRandomNetworkWithProposedMethod1(i, ParamerterWithProposedMethod1.agentnumberinnetwork[i]);
+            network[i] = new AgentRandomNetworkWithProposedMethod(i, ParamerterWithProposedMethod1.agentnumberinnetwork[i]);
             network[i].generateGraph();
         }
     }
@@ -119,16 +119,47 @@ public class OriginalNetworkLayerWithProposedMethod1 {
         for(int i=0;i<network[ln].friendagent[an1].size();i++) {
             an2 = network[ln].friendagent[an1].get(i).number;
             if (network[ln].agent[an1].express && network[ln].agent[an2].express) {
-                if (Math.abs(network[ln].agent[an1].opinion - network[ln].agent[an2].opinion) < Paramerter.confornitybias) {
+                if (network[ln].agent[an1].opinion - network[ln].agent[an2].opinion < Paramerter.confornitybias) {
                     network[ln].agent[an2].opinion = (network[ln].agent[an1].opinion + network[ln].agent[an2].opinion) / 2;
                 }
             }
         }
     }
 
+    public static void formationOpinionforPrior(){
+        /**
+         * an1 = agentnumber1 an2 = agentnumber2
+         * an2number = agentnumber1のactivefriendの中のagentnumber2がいる番号
+         * ln = layernumber
+         */
+        int an1;
+        for(int i=0; i<ParamerterWithProposedMethod1.layernumber;i++) {
+            Collections.shuffle(shufflenumber[i]);
+            for (int j = 0; j < network[i].choosedagentnumber; j++) {
+                an1 = network[i].choosedagent.get(shufflenumber[i].get(j));
+                if (network[i].friendagent[an1].size() == 0)
+                    continue;
+                infuluenceOpinion(i, an1);
+            }
+        }
+    }
+
+    public static void exchangeOpinion(int ln,int an1){
+        double tmp;
+        int an2;
+        an2 = Paramerter.rand.nextInt(allfriends[an1].size());
+        if(network[ln].agent[an1].express && network[ln].agent[an2].express){
+            if(Math.abs(network[ln].agent[an1].opinion - network[ln].agent[an2].opinion) < Paramerter.confornitybias) {
+                tmp = (network[ln].agent[an1].opinion + network[ln].agent[an2].opinion)/2;
+                network[ln].agent[an1].opinion = tmp;
+                network[ln].agent[an2].opinion = tmp;
+            }
+        }
+    }
+
     public static void pressureAndSilence(){
         /**
-         * fa = friendagent
+         * fa = friendagentnunmber
          */
         int fa;
         for(int i=0;i<maxagentnumber;i++){

@@ -10,19 +10,19 @@ public class ReserchExperiment {
         }
     }
 
-    public static void originalReserch(){
-        OriginalNetworkLayer.init();
+    public static void originalReserch(int type){
+        OriginalNetworkLayerWithProposedMethod.init(type);
         for(int i=0;i<Paramerter.convergencenumber;i++){
-            OriginalNetworkLayer.formationOfOpinion();
-            OriginalNetworkLayer.pressureAndSilence();
+            OriginalNetworkLayerWithProposedMethod.formationOpinionforPrior();
+            OriginalNetworkLayerWithProposedMethod.pressureAndSilence();
         }
     }
 
     public static void originalReserchWithProposedMethod1(int type){
-        OriginalNetworkLayerWithProposedMethod1.init(type);
+        OriginalNetworkLayerWithProposedMethod.init(type);
         for(int i=0;i<ParamerterWithProposedMethod1.convergencenumber;i++){
-            OriginalNetworkLayerWithProposedMethod1.formationOfOpinion();
-            OriginalNetworkLayerWithProposedMethod1.pressureAndSilence();
+            OriginalNetworkLayerWithProposedMethod.formationOfOpinion();
+            OriginalNetworkLayerWithProposedMethod.pressureAndSilence();
         }
     }
 

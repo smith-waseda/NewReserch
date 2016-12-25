@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * Created by Sumi on 2016/12/16.
  */
 
-public class AgentRandomNetworkWithProposedMethod1 {
+public class AgentRandomNetworkWithProposedMethod {
     private static final double p = ParamerterWithProposedMethod1.probability;
     private static final int maxagentnumber = ParamerterWithProposedMethod1.agentnumber;
     public int choosedagentnumber; //デフォルト
@@ -18,7 +18,7 @@ public class AgentRandomNetworkWithProposedMethod1 {
      */
     public ArrayList<Integer> choosedagent = new ArrayList<>();
 
-    public AgentRandomNetworkWithProposedMethod1(int layernumber, int agentnumberinnetwork) {
+    public AgentRandomNetworkWithProposedMethod(int layernumber, int agentnumberinnetwork) {
         choosedagentnumber = agentnumberinnetwork;
         ChoosingAgent();
         agent = new Agent[maxagentnumber];

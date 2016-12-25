@@ -24,7 +24,7 @@ public class DataOutputWithProposedMethod {
 
                 for (int i = 0; i < ParamerterWithProposedMethod1.layernumber; i++) {
                     for (int j = 0; j < ParamerterWithProposedMethod1.agentnumber; j++) {
-                        buf.append(OriginalNetworkLayerWithProposedMethod1.network[i].agent[j].opinion);
+                        buf.append(OriginalNetworkLayerWithProposedMethod.network[i].agent[j].opinion);
                         buf.append(",");
                     }
                     writing = buf.toString();
@@ -69,8 +69,8 @@ public class DataOutputWithProposedMethod {
                 for (int i = 0; i < ParamerterWithProposedMethod1.layernumber; i++) {
                     /*平均を求める処理*/
                     for (int j = 0; j < ParamerterWithProposedMethod1.agentnumberinnetwork[i]; j++) {
-                        an = OriginalNetworkLayerWithProposedMethod1.network[i].choosedagent.get(j);
-                        total += OriginalNetworkLayerWithProposedMethod1.network[i].agent[an].opinion;
+                        an = OriginalNetworkLayerWithProposedMethod.network[i].choosedagent.get(j);
+                        total += OriginalNetworkLayerWithProposedMethod.network[i].agent[an].opinion;
                     }
                     //すべてのネットワーク上の意見の合計と平均を求めるための処理
                     alltotal += total;
@@ -91,8 +91,8 @@ public class DataOutputWithProposedMethod {
 
                     /*分散を求める処理*/
                     for (int j = 0; j < ParamerterWithProposedMethod1.agentnumberinnetwork[i]; j++) {
-                        an = OriginalNetworkLayerWithProposedMethod1.network[i].choosedagent.get(j);
-                        dispersiontotal += (OriginalNetworkLayerWithProposedMethod1.network[i].agent[an].opinion- average) * (OriginalNetworkLayerWithProposedMethod1.network[i].agent[an].opinion- average);
+                        an = OriginalNetworkLayerWithProposedMethod.network[i].choosedagent.get(j);
+                        dispersiontotal += (OriginalNetworkLayerWithProposedMethod.network[i].agent[an].opinion- average) * (OriginalNetworkLayerWithProposedMethod.network[i].agent[an].opinion- average);
                     }
                     dispersionaverage = dispersiontotal/ParamerterWithProposedMethod1.agentnumberinnetwork[i];
                     sub.append(dispersionaverage);
@@ -141,18 +141,18 @@ public class DataOutputWithProposedMethod {
                     for (int j = 0; j < ParamerterWithProposedMethod1.agentnumberinnetwork[i]; j++) {
 
                         /*意見を表明している割合*/
-                        an = OriginalNetworkLayerWithProposedMethod1.network[i].choosedagent.get(j);
-                        if (OriginalNetworkLayerWithProposedMethod1.network[i].agent[an].express) {
+                        an = OriginalNetworkLayerWithProposedMethod.network[i].choosedagent.get(j);
+                        if (OriginalNetworkLayerWithProposedMethod.network[i].agent[an].express) {
                             opinionagent++;
                         }
 
                         /*コンセンサスの取れている割合*/
-                        if (OriginalNetworkLayerWithProposedMethod1.network[i].friendagent[an].size() == 0){
+                        if (OriginalNetworkLayerWithProposedMethod.network[i].friendagent[an].size() == 0){
                             continue;
                         }
-                        edgetotal+=OriginalNetworkLayerWithProposedMethod1.network[i].friendagent[an].size();
-                        for(int k=0;k<OriginalNetworkLayerWithProposedMethod1.network[i].friendagent[an].size();k++){
-                            if(Math.abs(OriginalNetworkLayerWithProposedMethod1.network[i].agent[an].opinion-OriginalNetworkLayerWithProposedMethod1.network[i].friendagent[an].get(k).opinion)<=Paramerter.confornitybias)
+                        edgetotal+= OriginalNetworkLayerWithProposedMethod.network[i].friendagent[an].size();
+                        for(int k = 0; k< OriginalNetworkLayerWithProposedMethod.network[i].friendagent[an].size(); k++){
+                            if(Math.abs(OriginalNetworkLayerWithProposedMethod.network[i].agent[an].opinion- OriginalNetworkLayerWithProposedMethod.network[i].friendagent[an].get(k).opinion)<=Paramerter.confornitybias)
                                 consensusinnetwork++;
                         }
                     }
