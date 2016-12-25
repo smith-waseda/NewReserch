@@ -152,8 +152,9 @@ public class DataOutputWithProposedMethod {
                         }
                         edgetotal+=OriginalNetworkLayerWithProposedMethod1.network[i].friendagent[an].size();
                         for(int k=0;k<OriginalNetworkLayerWithProposedMethod1.network[i].friendagent[an].size();k++){
-                            if(Math.abs(OriginalNetworkLayerWithProposedMethod1.network[i].agent[an].opinion-OriginalNetworkLayerWithProposedMethod1.network[i].friendagent[an].get(k).opinion)<=Paramerter.confornitybias)
+                            if(OriginalNetworkLayerWithProposedMethod1.network[i].agent[an].opinion-OriginalNetworkLayerWithProposedMethod1.network[i].friendagent[an].get(k).opinion<=Paramerter.confornitybias){
                                 consensusinnetwork++;
+                            }
                         }
                     }
 
