@@ -65,7 +65,7 @@ public class DataOutputForOriginal {
                     total511=0;
                     total512=0;
                     for (int j = 0; j < looptime; j++) {
-                        ReserchExperiment.originalReserch();
+                        ReserchExperiment.originalReserch(0);
                         total411 += evaluateDispersion();
                         total412 += differenceBetweenNetworkLayer();
                         total511 += percentageOfExpress();
