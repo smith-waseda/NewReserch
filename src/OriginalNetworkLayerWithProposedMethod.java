@@ -101,6 +101,7 @@ public class OriginalNetworkLayerWithProposedMethod {
          * an2number = agentnumber1のactivefriendの中のagentnumber2がいる番号
          * ln = layernumber
          */
+        /*
         int an1;
         for(int i=0; i<ParamerterWithProposedMethod1.layernumber;i++) {
             Collections.shuffle(shufflenumber[i]);
@@ -109,6 +110,18 @@ public class OriginalNetworkLayerWithProposedMethod {
                 if (network[i].friendagent[an1].size() == 0)
                     continue;
                 infuluenceOpinion(i, an1);
+            }
+        }
+        */
+        int an1,ln;
+        for(int i=0;i<ParamerterWithProposedMethod1.agentnumber;i++) {
+            an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.agentnumber);
+            while (allfriends[an1].size() == 0) {
+                an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.agentnumber);
+            }
+            ln = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.layernumber);
+            while (network[ln].friendagent[an1].size() == 0) {
+                ln = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.layernumber);
             }
         }
     }
@@ -132,6 +145,7 @@ public class OriginalNetworkLayerWithProposedMethod {
          * an2number = agentnumber1のactivefriendの中のagentnumber2がいる番号
          * ln = layernumber
          */
+        /*
         int an1;
         for(int i=0; i<ParamerterWithProposedMethod1.layernumber;i++) {
             Collections.shuffle(shufflenumber[i]);
@@ -140,6 +154,18 @@ public class OriginalNetworkLayerWithProposedMethod {
                 if (network[i].friendagent[an1].size() == 0)
                     continue;
                 infuluenceOpinion(i, an1);
+            }
+        }
+        */
+        int an1,ln;
+        for(int i=0;i<ParamerterWithProposedMethod1.agentnumber;i++) {
+            an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.agentnumber);
+            while (allfriends[an1].size() == 0) {
+                an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.agentnumber);
+            }
+            ln = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.layernumber);
+            while (network[ln].friendagent[an1].size() == 0) {
+                ln = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.layernumber);
             }
         }
     }

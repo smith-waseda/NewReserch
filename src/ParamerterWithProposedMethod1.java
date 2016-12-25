@@ -2,7 +2,7 @@
  * Created by Sumi on 2016/12/16.
  */
 public class ParamerterWithProposedMethod1 extends Paramerter {
-    public static final int agentnumber = 100;
+    public static int agentnumber = 100;
     public static int layernumber = 0;
     public static int[] agentnumberinnetwork;
     //public static int allagentnumberinnetwork;
@@ -19,6 +19,7 @@ public class ParamerterWithProposedMethod1 extends Paramerter {
     public static void Dataset(int type){
         switch(type){
             case 0:
+                agentnumber = 100;
                 layernumber = 8;
                 agentnumberinnetwork = new int[ParamerterWithProposedMethod1.layernumber];
                 agentnumberinnetwork[0] = 100;
@@ -32,6 +33,7 @@ public class ParamerterWithProposedMethod1 extends Paramerter {
                 break;
 
             case 1:
+                agentnumber = 100;
                 layernumber = 8;
                 agentnumberinnetwork = new int[ParamerterWithProposedMethod1.layernumber];
                 agentnumberinnetwork[0] = 100;
@@ -44,6 +46,7 @@ public class ParamerterWithProposedMethod1 extends Paramerter {
                 agentnumberinnetwork[7] = 100;
                 break;
             case 2:
+                agentnumber = 100;
                 layernumber=8;
                 agentnumberinnetwork[0] = 100;
                 agentnumberinnetwork[1] = 100;
@@ -55,7 +58,8 @@ public class ParamerterWithProposedMethod1 extends Paramerter {
                 agentnumberinnetwork[7] = 100;
                 break;
             case 3:
-                layernumber=2;
+                agentnumber = 100;
+                layernumber =8;
                 agentnumberinnetwork = new int[ParamerterWithProposedMethod1.layernumber];
                 agentnumberinnetwork[0] = 10;
                 agentnumberinnetwork[1] = 10;
