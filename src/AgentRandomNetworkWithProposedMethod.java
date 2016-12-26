@@ -5,9 +5,8 @@ import java.util.ArrayList;
  */
 
 public class AgentRandomNetworkWithProposedMethod {
-    private static final double p = ParamerterWithProposedMethod1.probability;
-    private static final int maxagentnumber = ParamerterWithProposedMethod1.agentnumber;
-    public int choosedagentnumber; //デフォルト
+    private static final double p = ParamerterWithProposedMethod.probability;
+    private static final int maxagentnumber = ParamerterWithProposedMethod.agentnumber;
     public Agent[] agent;
     public ArrayList<Agent>[] friendagent;
 
@@ -16,6 +15,7 @@ public class AgentRandomNetworkWithProposedMethod {
     /**
      *ランダムに選んだ100体のエージェントを格納する
      */
+    public int choosedagentnumber; //デフォルト
     public ArrayList<Integer> choosedagent = new ArrayList<>();
 
     public AgentRandomNetworkWithProposedMethod(int layernumber, int agentnumberinnetwork) {
@@ -37,9 +37,9 @@ public class AgentRandomNetworkWithProposedMethod {
     public void ChoosingAgent(){
         int tmp;
         for(int i=0; i<choosedagentnumber;i++){
-            tmp =Paramerter.rand.nextInt(ParamerterWithProposedMethod1.agentnumber);
+            tmp =Paramerter.rand.nextInt(ParamerterWithProposedMethod.agentnumber);
             while(choosedagent.contains(tmp)){
-                tmp = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.agentnumber);
+                tmp = Paramerter.rand.nextInt(ParamerterWithProposedMethod.agentnumber);
             }
             choosedagent.add(tmp);
         }

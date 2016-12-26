@@ -22,8 +22,8 @@ public class DataOutputWithProposedMethod {
             if (checkBeforeWritefile(file)) {
                 filewriter = new FileWriter(file);
 
-                for (int i = 0; i < ParamerterWithProposedMethod1.layernumber; i++) {
-                    for (int j = 0; j < ParamerterWithProposedMethod1.agentnumber; j++) {
+                for (int i = 0; i < ParamerterWithProposedMethod.layernumber; i++) {
+                    for (int j = 0; j < ParamerterWithProposedMethod.agentnumber; j++) {
                         buf.append(OriginalNetworkLayerWithProposedMethod.network[i].agent[j].opinion);
                         buf.append(",");
                     }
@@ -66,17 +66,17 @@ public class DataOutputWithProposedMethod {
             if (checkBeforeWritefile(file)) {
                 filewriter = new FileWriter(file,true);
 
-                for (int i = 0; i < ParamerterWithProposedMethod1.layernumber; i++) {
+                for (int i = 0; i < ParamerterWithProposedMethod.layernumber; i++) {
                     /*平均を求める処理*/
-                    for (int j = 0; j < ParamerterWithProposedMethod1.agentnumberinnetwork[i]; j++) {
+                    for (int j = 0; j < ParamerterWithProposedMethod.agentnumberinnetwork[i]; j++) {
                         an = OriginalNetworkLayerWithProposedMethod.network[i].choosedagent.get(j);
                         total += OriginalNetworkLayerWithProposedMethod.network[i].agent[an].opinion;
                     }
                     //すべてのネットワーク上の意見の合計と平均を求めるための処理
                     alltotal += total;
-                    choosedagentinlayer+=ParamerterWithProposedMethod1.agentnumberinnetwork[i];
+                    choosedagentinlayer+= ParamerterWithProposedMethod.agentnumberinnetwork[i];
 
-                    average = total / ParamerterWithProposedMethod1.agentnumberinnetwork[i];
+                    average = total / ParamerterWithProposedMethod.agentnumberinnetwork[i];
                     buf.append(average);
                     buf.append(",");
                     total = 0;
@@ -90,11 +90,11 @@ public class DataOutputWithProposedMethod {
                     }
 
                     /*分散を求める処理*/
-                    for (int j = 0; j < ParamerterWithProposedMethod1.agentnumberinnetwork[i]; j++) {
+                    for (int j = 0; j < ParamerterWithProposedMethod.agentnumberinnetwork[i]; j++) {
                         an = OriginalNetworkLayerWithProposedMethod.network[i].choosedagent.get(j);
                         dispersiontotal += (OriginalNetworkLayerWithProposedMethod.network[i].agent[an].opinion- average) * (OriginalNetworkLayerWithProposedMethod.network[i].agent[an].opinion- average);
                     }
-                    dispersionaverage = dispersiontotal/ParamerterWithProposedMethod1.agentnumberinnetwork[i];
+                    dispersionaverage = dispersiontotal/ ParamerterWithProposedMethod.agentnumberinnetwork[i];
                     sub.append(dispersionaverage);
                     sub.append(",");
                     dispersiontotal = 0;
@@ -137,8 +137,8 @@ public class DataOutputWithProposedMethod {
             if (checkBeforeWritefile(file)) {
                 filewriter = new FileWriter(file, true);
 
-                for (int i = 0; i < ParamerterWithProposedMethod1.layernumber; i++) {
-                    for (int j = 0; j < ParamerterWithProposedMethod1.agentnumberinnetwork[i]; j++) {
+                for (int i = 0; i < ParamerterWithProposedMethod.layernumber; i++) {
+                    for (int j = 0; j < ParamerterWithProposedMethod.agentnumberinnetwork[i]; j++) {
 
                         /*意見を表明している割合*/
                         an = OriginalNetworkLayerWithProposedMethod.network[i].choosedagent.get(j);
@@ -159,9 +159,9 @@ public class DataOutputWithProposedMethod {
 
                     //すべての層での意見表明の割合の準備
                     opinionagentinlayer += opinionagent;
-                    choosedagentinlayer += ParamerterWithProposedMethod1.agentnumberinnetwork[i];
+                    choosedagentinlayer += ParamerterWithProposedMethod.agentnumberinnetwork[i];
 
-                    expresspersentage = (double)opinionagent / (double)ParamerterWithProposedMethod1.agentnumberinnetwork[i];
+                    expresspersentage = (double)opinionagent / (double) ParamerterWithProposedMethod.agentnumberinnetwork[i];
                     opinionagent=0;
                     buf.append(expresspersentage);
                     buf.append(",");

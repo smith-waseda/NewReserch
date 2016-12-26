@@ -1,12 +1,11 @@
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Created by Sumi on 2016/12/16.
  */
 public class OriginalNetworkLayerWithProposedMethod {
     public static int maxlayernumber;
-    public static final int maxagentnumber = ParamerterWithProposedMethod1.agentnumber;
+    public static final int maxagentnumber = ParamerterWithProposedMethod.agentnumber;
     public static AgentRandomNetworkWithProposedMethod[] network;
     public static ArrayList<Integer>[] shufflenumber;
     public static ArrayList<Integer>[] allfriends;
@@ -55,20 +54,20 @@ public class OriginalNetworkLayerWithProposedMethod {
      * @param type　ネットワークの組み方
      */
     public static void initNetwork(int type) {
-        ParamerterWithProposedMethod1.Dataset(type);
-        maxlayernumber = ParamerterWithProposedMethod1.layernumber;
+        ParamerterWithProposedMethod.Dataset(type);
+        maxlayernumber = ParamerterWithProposedMethod.layernumber;
         shufflenumber = new ArrayList[maxlayernumber];
         for (int i = 0; i < maxlayernumber; i++) {
             shufflenumber[i] = new ArrayList<>();
         }
         for (int i = 0; i < maxlayernumber; i++) {
-            for (int j = 0; j < ParamerterWithProposedMethod1.agentnumberinnetwork[i]; j++) {
+            for (int j = 0; j < ParamerterWithProposedMethod.agentnumberinnetwork[i]; j++) {
                 shufflenumber[i].add(j);
             }
         }
         network = new AgentRandomNetworkWithProposedMethod[maxlayernumber];
         for (int i = 0; i < maxlayernumber; i++) {
-            network[i] = new AgentRandomNetworkWithProposedMethod(i, ParamerterWithProposedMethod1.agentnumberinnetwork[i]);
+            network[i] = new AgentRandomNetworkWithProposedMethod(i, ParamerterWithProposedMethod.agentnumberinnetwork[i]);
             network[i].generateGraph();
         }
     }
@@ -103,7 +102,7 @@ public class OriginalNetworkLayerWithProposedMethod {
          */
         /*
         int an1;
-        for(int i=0; i<ParamerterWithProposedMethod1.layernumber;i++) {
+        for(int i=0; i<ParamerterWithProposedMethod.layernumber;i++) {
             Collections.shuffle(shufflenumber[i]);
             for (int j = 0; j < network[i].choosedagentnumber; j++) {
                 an1 = network[i].choosedagent.get(shufflenumber[i].get(j));
@@ -114,14 +113,14 @@ public class OriginalNetworkLayerWithProposedMethod {
         }
         */
         int an1,ln;
-        for(int i=0;i<ParamerterWithProposedMethod1.agentnumber;i++) {
-            an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.agentnumber);
+        for(int i = 0; i< ParamerterWithProposedMethod.agentnumber; i++) {
+            an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod.agentnumber);
             while (allfriends[an1].size() == 0) {
-                an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.agentnumber);
+                an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod.agentnumber);
             }
-            ln = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.layernumber);
+            ln = Paramerter.rand.nextInt(ParamerterWithProposedMethod.layernumber);
             while (network[ln].friendagent[an1].size() == 0) {
-                ln = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.layernumber);
+                ln = Paramerter.rand.nextInt(ParamerterWithProposedMethod.layernumber);
             }
         }
     }
@@ -147,7 +146,7 @@ public class OriginalNetworkLayerWithProposedMethod {
          */
         /*
         int an1;
-        for(int i=0; i<ParamerterWithProposedMethod1.layernumber;i++) {
+        for(int i=0; i<ParamerterWithProposedMethod.layernumber;i++) {
             Collections.shuffle(shufflenumber[i]);
             for (int j = 0; j < network[i].choosedagentnumber; j++) {
                 an1 = network[i].choosedagent.get(shufflenumber[i].get(j));
@@ -158,14 +157,14 @@ public class OriginalNetworkLayerWithProposedMethod {
         }
         */
         int an1,ln;
-        for(int i=0;i<ParamerterWithProposedMethod1.agentnumber;i++) {
-            an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.agentnumber);
+        for(int i = 0; i< ParamerterWithProposedMethod.agentnumber; i++) {
+            an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod.agentnumber);
             while (allfriends[an1].size() == 0) {
-                an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.agentnumber);
+                an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod.agentnumber);
             }
-            ln = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.layernumber);
+            ln = Paramerter.rand.nextInt(ParamerterWithProposedMethod.layernumber);
             while (network[ln].friendagent[an1].size() == 0) {
-                ln = Paramerter.rand.nextInt(ParamerterWithProposedMethod1.layernumber);
+                ln = Paramerter.rand.nextInt(ParamerterWithProposedMethod.layernumber);
             }
         }
     }

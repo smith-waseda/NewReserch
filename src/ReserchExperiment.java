@@ -20,7 +20,7 @@ public class ReserchExperiment {
 
     public static void originalReserchWithProposedMethod1(int type){
         OriginalNetworkLayerWithProposedMethod.init(type);
-        for(int i=0;i<ParamerterWithProposedMethod1.convergencenumber;i++){
+        for(int i = 0; i< ParamerterWithProposedMethod.convergencenumber; i++){
             OriginalNetworkLayerWithProposedMethod.formationOfOpinion();
             OriginalNetworkLayerWithProposedMethod.pressureAndSilence();
         }
