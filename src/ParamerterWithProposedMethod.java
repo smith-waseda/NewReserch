@@ -2,10 +2,13 @@
  * Created by Sumi on 2016/12/16.
  */
 public class ParamerterWithProposedMethod extends Paramerter {
-    public static int agentnumber = 100;
+    public static int agentnumber =100;
     public static int layernumber = 0;
     public static int[] agentnumberinnetwork;
-    //public static int allagentnumberinnetwork;
+    /**
+     * 接続次数：Paramerの接続確率に代わるもの
+     */
+    public static double connectionorder = 10;
 
     public static int returnAllAgentNumberInNetwork(){
         int total=0;
@@ -33,10 +36,10 @@ public class ParamerterWithProposedMethod extends Paramerter {
                 break;
 
             case 1:
-                agentnumber = 100;
+                agentnumber = 800;
                 layernumber = 8;
                 agentnumberinnetwork = new int[ParamerterWithProposedMethod.layernumber];
-                agentnumberinnetwork[0] = 200;
+                agentnumberinnetwork[0] = 800;
                 agentnumberinnetwork[1] = 200;
                 agentnumberinnetwork[2] = 200;
                 agentnumberinnetwork[3] = 200;
@@ -46,7 +49,7 @@ public class ParamerterWithProposedMethod extends Paramerter {
                 agentnumberinnetwork[7] = 200;
                 break;
             case 2:
-                agentnumber = 100;
+                agentnumber = 800;
                 layernumber=8;
                 agentnumberinnetwork = new int[ParamerterWithProposedMethod.layernumber];
                 agentnumberinnetwork[0] = 800;
@@ -59,7 +62,7 @@ public class ParamerterWithProposedMethod extends Paramerter {
                 agentnumberinnetwork[7] = 100;
                 break;
             case 3:
-                agentnumber = 100;
+                agentnumber = 800;
                 layernumber =8;
                 agentnumberinnetwork = new int[ParamerterWithProposedMethod.layernumber];
                 agentnumberinnetwork[0] = 800;

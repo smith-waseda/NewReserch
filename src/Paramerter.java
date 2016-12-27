@@ -30,7 +30,7 @@ public class Paramerter {
     /**
      * 乱数生成
      */
-    public static MersenneTwister rand = new MersenneTwister(1);
+    public static MersenneTwister rand = new MersenneTwister(12);
 
     public static void generateRandom(long seed) {
         rand = new MersenneTwister(seed);

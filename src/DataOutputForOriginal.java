@@ -127,7 +127,7 @@ public class DataOutputForOriginal {
                 total += (OriginalNetworkLayer.network[i].agent[j].opinion- average) * (OriginalNetworkLayer.network[i].agent[j].opinion- average);
             }
         }
-        dispersion = total / (Paramerter.agentnumber * Paramerter.layernumber);
+        dispersion = Math.sqrt(total / (Paramerter.agentnumber * Paramerter.layernumber));
         return dispersion;
     }
 

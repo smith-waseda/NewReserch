@@ -12,13 +12,14 @@ public class Test {
     public static AgentRandomNetworkWithProposedMethod network1;
     public static void main(String[] args) {
 
-        OriginalNetworkLayerWithProposedMethod.init(0);
-        //OriginalNetworkLayerWithProposedMethod.displayNetwork();
-        for(int i=0;i<Paramerter.convergencenumber;i++){
-            OriginalNetworkLayerWithProposedMethod.formationOfOpinion();
+        OriginalNetworkLayerWithProposedMethod.init(3);
+        Paramerter.connectivity=1.0;
+        OriginalNetworkLayerWithProposedMethod.displayNetwork();
+        for(int i=0;i<100000;i++){
+            OriginalNetworkLayerWithProposedMethod.formationOfOpinionforPrior();
             OriginalNetworkLayerWithProposedMethod.pressureAndSilence();
         }
-        OriginalNetworkLayerWithProposedMethod.displayNetwork();
+        //OriginalNetworkLayerWithProposedMethod.displayNetwork();
         //OriginalNetworkLayerWithProposedMethod.displayAllFriendsNetwork();
     }
 

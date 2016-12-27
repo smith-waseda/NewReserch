@@ -94,7 +94,7 @@ public class DataOutputWithProposedMethod {
                         an = OriginalNetworkLayerWithProposedMethod.network[i].choosedagent.get(j);
                         dispersiontotal += (OriginalNetworkLayerWithProposedMethod.network[i].agent[an].opinion- average) * (OriginalNetworkLayerWithProposedMethod.network[i].agent[an].opinion- average);
                     }
-                    dispersionaverage = dispersiontotal/ ParamerterWithProposedMethod.agentnumberinnetwork[i];
+                    dispersionaverage = Math.sqrt(dispersiontotal/ ParamerterWithProposedMethod.agentnumberinnetwork[i]);
                     sub.append(dispersionaverage);
                     sub.append(",");
                     dispersiontotal = 0;

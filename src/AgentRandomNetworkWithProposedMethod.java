@@ -5,8 +5,8 @@ import java.util.ArrayList;
  */
 
 public class AgentRandomNetworkWithProposedMethod {
-    private static final double p = ParamerterWithProposedMethod.probability;
     private static final int maxagentnumber = ParamerterWithProposedMethod.agentnumber;
+    private static double p;
     public Agent[] agent;
     public ArrayList<Agent>[] friendagent;
 
@@ -31,6 +31,22 @@ public class AgentRandomNetworkWithProposedMethod {
         }
     }
 
+    public AgentRandomNetworkWithProposedMethod(int layernumber,int agentnumberinnetwork,int startagent){
+        choosedagentnumber = agentnumberinnetwork;
+        for(int i=startagent;i<startagent+agentnumberinnetwork;i++){
+            choosedagent.add(i);
+        }
+        agent = new Agent[maxagentnumber];
+        for (int i = 0; i < maxagentnumber; i++){
+            agent[i] = new Agent(i,layernumber);
+        }
+        friendagent = new ArrayList[maxagentnumber];
+        for (int i = 0; i < maxagentnumber; i++){
+            friendagent[i] = new ArrayList<>();
+        }
+    }
+
+
     /**
      * 全エージェントの中から、choosedagentnumber体のエージェントを選ぶ
      */
@@ -49,6 +65,7 @@ public class AgentRandomNetworkWithProposedMethod {
      * これはランダムネットワーク
      */
     public void generateGraph() {
+        p = ParamerterWithProposedMethod.connectionorder/choosedagentnumber;
         for (int i = 0; i < choosedagentnumber; i++) {
             for (int j = i; j <choosedagentnumber; j++) {
                 if (i == j) continue;
