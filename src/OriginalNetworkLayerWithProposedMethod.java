@@ -7,13 +7,12 @@ public class OriginalNetworkLayerWithProposedMethod {
     public static int maxlayernumber;
     public static int maxagentnumber;
     public static AgentRandomNetworkWithProposedMethod[] network;
-    public static ArrayList<Integer>[] shufflenumber;
+    public static ArrayList<Integer> shufflenumber;
     public static ArrayList<Integer>[] allfriends;
     private static StringBuffer buf = new StringBuffer();
 
     public static void init(int type){
         /**
-         * make shuffle arraylist
          * make network
          */
         initNetwork(type);
@@ -49,6 +48,15 @@ public class OriginalNetworkLayerWithProposedMethod {
                 }
             }
         }
+
+
+        /**
+         * make shuffle arraylist
+         */
+        shufflenumber = new ArrayList<>();
+        for(int i = 0; i< maxagentnumber; i++){
+            shufflenumber.add(i);
+        }
     }
 
     /**
@@ -58,15 +66,6 @@ public class OriginalNetworkLayerWithProposedMethod {
     public static void initNetwork(int type) {
         ParamerterWithProposedMethod.Dataset(type);
         maxlayernumber = ParamerterWithProposedMethod.layernumber;
-        shufflenumber = new ArrayList[maxlayernumber];
-        for (int i = 0; i < maxlayernumber; i++) {
-            shufflenumber[i] = new ArrayList<>();
-        }
-        for (int i = 0; i < maxlayernumber; i++) {
-            for (int j = 0; j < ParamerterWithProposedMethod.agentnumberinnetwork[i]; j++) {
-                shufflenumber[i].add(j);
-            }
-        }
         network = new AgentRandomNetworkWithProposedMethod[maxlayernumber];
         //先行研究、SNS型
         if(type ==0 || type==1) {
@@ -122,8 +121,8 @@ public class OriginalNetworkLayerWithProposedMethod {
          * ln = layernumber
          */
         int an1,ln;
-        for(int i = 0; i< ParamerterWithProposedMethod.agentnumber; i++) {
-            an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod.agentnumber);
+        for(int i=0;i<shufflenumber.size();i++){
+            an1 = shufflenumber.get(i);
             while (allfriends[an1].size() == 0) {
                 an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod.agentnumber);
             }
@@ -155,8 +154,8 @@ public class OriginalNetworkLayerWithProposedMethod {
          * ln = layernumber
          */
         int an1,ln;
-        for(int i = 0; i< ParamerterWithProposedMethod.agentnumber; i++) {
-            an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod.agentnumber);
+        for(int i=0;i<shufflenumber.size();i++){
+            an1 = shufflenumber.get(i);
             while (allfriends[an1].size() == 0) {
                 an1 = Paramerter.rand.nextInt(ParamerterWithProposedMethod.agentnumber);
             }

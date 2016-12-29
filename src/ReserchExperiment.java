@@ -34,11 +34,21 @@ public class ReserchExperiment {
         }
     }
 
-    public static void originalReserchWithSpecificNetWork(int type){
-        OriginalNetworkLayerWithProposedMethod.init(3);
+    /**
+     *
+     * @param type ネットワークの形
+     * @param type1　交換方法
+     */
+    public static void originalReserchWithSpecificNetWork(int type,int type1){
+        OriginalNetworkLayerWithProposedMethod.init(type);
         Paramerter.connectivity=1.0;
         for(int i=0;i<Paramerter.convergencenumber;i++){
-            OriginalNetworkLayerWithProposedMethod.formationOfOpinion();
+            if(type1 == 0) {
+                OriginalNetworkLayerWithProposedMethod.formationOfOpinionforPrior();
+            }
+            if(type1 ==1) {
+                OriginalNetworkLayerWithProposedMethod.formationOfOpinion();
+            }
             OriginalNetworkLayerWithProposedMethod.pressureAndSilence();
         }
     }

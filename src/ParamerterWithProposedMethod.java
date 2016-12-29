@@ -8,7 +8,11 @@ public class ParamerterWithProposedMethod extends Paramerter {
     /**
      * 接続次数：Paramerの接続確率に代わるもの
      */
-    public static double connectionorder = 10;
+    public static int connectionorder = 10;
+    /**
+     * wsモデルのノードの張替え確率
+     */
+    public static double wsprobablity = 0.2;
 
     public static int returnAllAgentNumberInNetwork(){
         int total=0;

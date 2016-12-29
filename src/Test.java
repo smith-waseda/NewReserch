@@ -14,13 +14,15 @@ public class Test {
 
         OriginalNetworkLayerWithProposedMethod.init(3);
         Paramerter.connectivity=1.0;
-        OriginalNetworkLayerWithProposedMethod.displayNetwork();
+        OriginalNetworkLayerWithProposedMethod.displayAllFriendsNetwork();
+        //OriginalNetworkLayerWithProposedMethod.displayNetwork();
+        /*
         for(int i=0;i<100000;i++){
             OriginalNetworkLayerWithProposedMethod.formationOfOpinionforPrior();
             OriginalNetworkLayerWithProposedMethod.pressureAndSilence();
         }
+        */
         //OriginalNetworkLayerWithProposedMethod.displayNetwork();
-        //OriginalNetworkLayerWithProposedMethod.displayAllFriendsNetwork();
     }
 
     public static void GenerateGraph() {
