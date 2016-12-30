@@ -11,11 +11,11 @@ public class OriginalNetworkLayerWithProposedMethod {
     public static ArrayList<Integer>[] allfriends;
     private static StringBuffer buf = new StringBuffer();
 
-    public static void init(int type){
+    public static void init(int type,int networktype){
         /**
          * make network
          */
-        initNetwork(type);
+        initNetwork(type,networktype);
 
         /**
          * set agent opinion
@@ -63,7 +63,7 @@ public class OriginalNetworkLayerWithProposedMethod {
      * ネットワークの構成
      * @param type　ネットワークの組み方
      */
-    public static void initNetwork(int type) {
+    public static void initNetwork(int type,int networktype) {
         ParamerterWithProposedMethod.Dataset(type);
         maxlayernumber = ParamerterWithProposedMethod.layernumber;
         network = new AgentRandomNetworkWithProposedMethod[maxlayernumber];
@@ -71,7 +71,12 @@ public class OriginalNetworkLayerWithProposedMethod {
         if(type ==0 || type==1) {
             for (int i = 0; i < maxlayernumber; i++) {
                 network[i] = new AgentRandomNetworkWithProposedMethod(i, ParamerterWithProposedMethod.agentnumberinnetwork[i]);
-                network[i].generateGraph();
+                if(networktype == 0)
+                    network[i].generateGraph();
+                if(networktype == 1)
+                    network[i].generateBAGraph();
+                if(networktype == 2)
+                    network[i].generateWSGraph();
             }
         }
         //会社型
@@ -95,8 +100,8 @@ public class OriginalNetworkLayerWithProposedMethod {
     public static void displayNetwork(){
         for(int i=0;i<maxlayernumber;i++) {
             System.out.println("network["+i+"]");
-            //network[i].displayLinking();
-            network[i].displayOpinion();
+            network[i].displayLinking();
+            //network[i].displayOpinion();
             //network[i].displayExpress();
         }
     }

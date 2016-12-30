@@ -12,10 +12,10 @@ public class Test {
     public static AgentRandomNetworkWithProposedMethod network1;
     public static void main(String[] args) {
 
-        OriginalNetworkLayerWithProposedMethod.init(3);
-        Paramerter.connectivity=1.0;
-        OriginalNetworkLayerWithProposedMethod.displayAllFriendsNetwork();
-        //OriginalNetworkLayerWithProposedMethod.displayNetwork();
+        OriginalNetworkLayerWithProposedMethod.init(0,2);
+        //Paramerter.connectivity=1.0;
+        //OriginalNetworkLayerWithProposedMethod.displayAllFriendsNetwork();
+        OriginalNetworkLayerWithProposedMethod.displayNetwork();
         /*
         for(int i=0;i<100000;i++){
             OriginalNetworkLayerWithProposedMethod.formationOfOpinionforPrior();

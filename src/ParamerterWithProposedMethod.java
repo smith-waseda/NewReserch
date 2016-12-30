@@ -12,7 +12,7 @@ public class ParamerterWithProposedMethod extends Paramerter {
     /**
      * wsモデルのノードの張替え確率
      */
-    public static double wsprobablity = 0.2;
+    public static double wsprobablity = 0.1;
 
     public static int returnAllAgentNumberInNetwork(){
         int total=0;

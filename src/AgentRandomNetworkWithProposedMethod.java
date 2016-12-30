@@ -77,6 +77,17 @@ public class AgentRandomNetworkWithProposedMethod {
         correctionToUndirectedGraph();
     }
 
+    public void correctionToUndirectedGraph() {
+        int addnumber;
+        for (int i = 0; i < choosedagentnumber; i++) {
+            for (int j = 0; j < friendagent[choosedagent.get(i)].size(); j++) {
+                addnumber = friendagent[choosedagent.get(i)].get(j).number;
+                if (!friendagent[addnumber].contains(agent[choosedagent.get(i)]))
+                    friendagent[addnumber].add(agent[choosedagent.get(i)]);
+            }
+        }
+    }
+
     public void generateBAGraph(){
         int an;
         //最初の10体
@@ -91,9 +102,9 @@ public class AgentRandomNetworkWithProposedMethod {
         //成長
         for(int i =ParamerterWithProposedMethod.connectionorder;i<choosedagentnumber;i++){
             for(int j=0;j<ParamerterWithProposedMethod.connectionorder;j++) {
-                an = Paramerter.rand.nextInt(i - 1);
-                while (friendagent[choosedagent.get(i)].contains(agent[choosedagent.get(an)])) {
-                    an = Paramerter.rand.nextInt(i - 1);
+                an = Paramerter.rand.nextInt(i);
+                while (friendagent[choosedagent.get(i)].contains(agent[choosedagent.get(an)]) || i==an) {
+                    an = Paramerter.rand.nextInt(i);
                 }
                 friendagent[choosedagent.get(i)].add(agent[choosedagent.get(an)]);
                 friendagent[choosedagent.get(an)].add(agent[choosedagent.get(i)]);
@@ -124,33 +135,24 @@ public class AgentRandomNetworkWithProposedMethod {
             }
         }
         //張替え
+        int tmp;
         for(int i=0;i<maxagentnumber;i++){
-            for(int j=0;j<friendagent[i].size();j++){
-                if(Paramerter.rand.nextDouble()>prob){
-                    //要素の削除
-                    int tmp = friendagent[choosedagent.get(i)].get(j).number;
-                    friendagent[choosedagent.get(i)].remove(j);
-                    friendagent[tmp].remove(friendagent[tmp].indexOf(agent[i]));
+            for(int j=1; j<= (ParamerterWithProposedMethod.connectionorder/2) ; j++){
 
-                    //要素の追加
-                    an =  Paramerter.rand.nextInt(maxagentnumber);
-                    while (friendagent[choosedagent.get(i)].contains(agent[choosedagent.get(an)])) {
-                        an =  Paramerter.rand.nextInt(maxagentnumber);
+                if(Paramerter.rand.nextDouble() < prob){
+                    tmp = i + j;
+                    if(tmp >= 100)
+                        tmp = tmp -100;
+                    friendagent[choosedagent.get(i)].remove(friendagent[choosedagent.get(i)].indexOf(agent[choosedagent.get(tmp)]));
+                    friendagent[choosedagent.get(tmp)].remove(friendagent[choosedagent.get(tmp)].indexOf(agent[choosedagent.get(i)]));
+
+                    an = Paramerter.rand.nextInt(choosedagentnumber);
+                    while (friendagent[choosedagent.get(i)].contains(agent[choosedagent.get(an)]) || i==an) {
+                        an = Paramerter.rand.nextInt(choosedagentnumber);
                     }
                     friendagent[choosedagent.get(i)].add(agent[choosedagent.get(an)]);
                     friendagent[choosedagent.get(an)].add(agent[choosedagent.get(i)]);
                 }
-            }
-        }
-    }
-
-    public void correctionToUndirectedGraph() {
-        int addnumber;
-        for (int i = 0; i < choosedagentnumber; i++) {
-            for (int j = 0; j < friendagent[choosedagent.get(i)].size(); j++) {
-                addnumber = friendagent[choosedagent.get(i)].get(j).number;
-                if (!friendagent[addnumber].contains(agent[choosedagent.get(i)]))
-                    friendagent[addnumber].add(agent[choosedagent.get(i)]);
             }
         }
     }
