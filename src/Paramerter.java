@@ -18,11 +18,11 @@ public class Paramerter {
     /**
      * ネットワーク間の接続性
      */
-    public static double connectivity = 0.1;
+    public static double connectivity = 1.0;
     /**
      * 一貫性のなさへの許容度
      */
-    public static double allowance = 0.3;
+    public static double allowance = 0.5;
     /**
      * ランダムネットワークの接続次数の確率
      */

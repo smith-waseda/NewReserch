@@ -100,8 +100,8 @@ public class OriginalNetworkLayerWithProposedMethod {
     public static void displayNetwork(){
         for(int i=0;i<maxlayernumber;i++) {
             System.out.println("network["+i+"]");
-            network[i].displayLinking();
-            //network[i].displayOpinion();
+            //network[i].displayLinking();
+            network[i].displayOpinion();
             //network[i].displayExpress();
         }
     }
@@ -145,7 +145,7 @@ public class OriginalNetworkLayerWithProposedMethod {
         for(int i=0;i<network[ln].friendagent[an1].size();i++) {
             an2 = network[ln].friendagent[an1].get(i).number;
             if (network[ln].agent[an1].express && network[ln].agent[an2].express) {
-                if ((network[ln].agent[an1].opinion - network[ln].agent[an2].opinion) < Paramerter.confornitybias) {
+                if (Math.abs(network[ln].agent[an1].opinion - network[ln].agent[an2].opinion) < Paramerter.confornitybias) {
                         network[ln].agent[an2].opinion = (network[ln].agent[an1].opinion + network[ln].agent[an2].opinion) / 2;
                 }
             }
