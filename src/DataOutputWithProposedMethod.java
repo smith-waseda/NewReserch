@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 /**
  * Created by Sumi on 2016/12/22.
@@ -12,6 +14,20 @@ public class DataOutputWithProposedMethod {
     private static StringBuffer sub = new StringBuffer();
     private static String writing,subwrinting;
 
+    private static  ArrayList<Double>[] totaldata;
+
+    public static void initArray(){
+        totaldata = new ArrayList[6];
+        for(int i=0;i<6;i++){
+            totaldata[i] = new ArrayList<>();
+        }
+    }
+
+    public static void clearArray(){
+        for(int i=0;i<6;i++){
+            totaldata[i].clear();
+        }
+    }
     /**
      * これはたぶん使わない
      * @param pathname
@@ -95,13 +111,16 @@ public class DataOutputWithProposedMethod {
                         dispersiontotal += (OriginalNetworkLayerWithProposedMethod.network[i].agent[an].opinion- average) * (OriginalNetworkLayerWithProposedMethod.network[i].agent[an].opinion- average);
                     }
                     dispersionaverage = Math.sqrt(dispersiontotal/ ParamerterWithProposedMethod.agentnumberinnetwork[i]);
+                    totaldata[1].add(dispersionaverage);
                     sub.append(dispersionaverage);
                     sub.append(",");
                     dispersiontotal = 0;
                 }
                 allaverage = alltotal / choosedagentinlayer;
+                totaldata[0].add(allaverage);
                 buf.append(allaverage);
                 buf.append(",");
+                totaldata[2].add(maxaverage-minaverage);
                 buf.append(maxaverage-minaverage+",");
 
                 //ファイルへの書き込み処理
@@ -169,10 +188,12 @@ public class DataOutputWithProposedMethod {
                     consensuspersentage = (double)consensusinnetwork / (double) edgetotal;
                     edgetotal=0;
                     consensusinnetwork=0;
+                    totaldata[4].add(consensuspersentage);
                     sub.append(consensuspersentage);
                     sub.append(",");
                 }
                 expresspersentageinlayer = (double)opinionagentinlayer/(double)choosedagentinlayer;
+                totaldata[3].add(expresspersentageinlayer);
                 buf.append(expresspersentageinlayer);
                 buf.append(",");
 
@@ -181,6 +202,45 @@ public class DataOutputWithProposedMethod {
                 subwrinting = sub.toString();
                 sub.delete(0,sub.length());
                 filewriter.write(writing + "XXX,"+subwrinting+"\n");
+
+                filewriter.close();
+            } else {
+                System.out.println("ファイルに書き込めません");
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+    private static double calculateA(ArrayList list){
+        double Atotal=0;
+        for(int i=0;i<list.size();i++){
+            Atotal = Atotal + (double)list.get(i);
+        }
+        return Atotal/(double)list.size();
+    }
+
+    private static double calculateD(ArrayList list){
+        double Dtotal=0;
+        double average = calculateA(list);
+        for(int i=0;i<list.size();i++){
+            Dtotal+=(average - (double)list.get(i))* (average - (double)list.get(i));
+        }
+        return Math.sqrt(Dtotal/(double)list.size());
+    }
+
+    public static void totalData(String pathname) {
+        try {
+            file = new File(pathname);
+            if (checkBeforeWritefile(file)) {
+                filewriter = new FileWriter(file,true);
+
+                for (int i = 0; i < 6; i++) {
+                    buf.append(calculateA(totaldata[i])+","+calculateD(totaldata[i])+",");
+                }
+                writing = buf.toString();
+                buf.delete(0, buf.length());
+                filewriter.write(writing + "\n");
 
                 filewriter.close();
             } else {

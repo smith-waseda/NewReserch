@@ -3,18 +3,20 @@
  */
 public class Execute {
     private static int looptime = Paramerter.numberoftrial;
-    private static String dir="C:\\Users\\s.nakamura\\Google ドライブ\\卒論のデータ";
+    private static String dir="E:\\卒論出力\\卒論のデータ";
     private static String straightdir;
-    private static String file1,file2;
+    private static String file1,file2,file3;
     public static void main(String[] args) {
-        /*
-        exe1(0,0.3,0);
-        exe1(0,0.5,0);
-        exe1(1,0.3,0);
-        exe1(1,0.5,0);
-        */
 
-        /*
+        DataOutputWithProposedMethod.initArray();
+/*
+        exe1(0,0.3);
+        exe1(0,0.5);
+        exe1(1,0.3);
+        exe1(1,0.5);
+
+/*
+
         exe2(0,0.3,1,0);
         exe2(0,0.3,2,0);
         exe2(0,0.3,3,0);
@@ -27,7 +29,7 @@ public class Execute {
         exe2(1,0.5,1,0);
         exe2(1,0.5,2,0);
         exe2(1,0.5,3,0);
-        */
+*/
 
         exe3(0,0.3,1);
         exe3(0,0.5,1);
@@ -39,6 +41,7 @@ public class Execute {
         exe3(1,0.3,2);
         exe3(1,0.5,2);
 
+
     }
 
     /**
@@ -48,9 +51,11 @@ public class Execute {
     public static void exe1(int type1,double type2){
         Paramerter.allowance=type2;
         if(type1 == 0)
-            straightdir = "\\先行研究"+type2;
+            straightdir = "\\先行研究,"+type2;
         if(type1 == 1)
             straightdir = "\\提案手法2,"+type2;
+        file3 = "集計データ";
+        MakeCSVFile.makeFiles(dir+straightdir, file3);
         for(int x=0;x<=10;x++) {
             Paramerter.connectivity=x*0.1;
             file1 = String.format("%.2f", Paramerter.getConnectivity())+","+ type2+"proposed2,412";
@@ -68,8 +73,11 @@ public class Execute {
                 DataOutputWithProposedMethod.evaluatePersentage(MakeCSVFile.returnLatestFIlename(dir+straightdir, file2));
                 System.out.println((x*100/10 + i/10 )+"% completed:second");
             }
+            DataOutputWithProposedMethod.totalData(MakeCSVFile.returnLatestFIlename(dir+straightdir, file3));
+            DataOutputWithProposedMethod.clearArray();
         }
     }
+
 
     /**
      * @param type1 提案手法2
@@ -103,6 +111,8 @@ public class Execute {
             straightdir = "\\先行研究-提案手法3,"+type2;
         if(type1 == 1)
             straightdir = "\\提案手法2-提案手法3,"+type2;
+        file3 = "集計データ"+networktype;
+        MakeCSVFile.makeFiles(dir+straightdir, file3);
         for(int x=0;x<=10;x++) {
             if(networktype == 2) {
                 Paramerter.connectivity =x* 0.1;
@@ -125,6 +135,8 @@ public class Execute {
                 DataOutputWithProposedMethod.evaluatePersentage(MakeCSVFile.returnLatestFIlename(dir+straightdir, file2));
                 System.out.println((x*100/10 + i/10 )+"% completed:second");
             }
+            DataOutputWithProposedMethod.totalData(MakeCSVFile.returnLatestFIlename(dir+straightdir, file3));
+            DataOutputWithProposedMethod.clearArray();
         }
     }
 }
